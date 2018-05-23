@@ -1,4 +1,4 @@
 <?php
 
-	requere_once("controller.php");
-	requere_once("view.php");
+	require_once("controller.php");
+	require_once("view.php");
