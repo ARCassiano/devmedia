@@ -7,7 +7,7 @@
 	$dtNasc	= "12/04/1996";
 
 	$mensagem	= "";
-	if($mensagem < 20)
+	if($idade < 20)
 		$mensagem	= "Jovem";
 	else
 		$mensagem	= "VoCcê esta ficando idosos!";
