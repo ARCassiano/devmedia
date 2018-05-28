@@ -10,9 +10,9 @@
 
 	<p><?php print_r($str_split); ?></p>
 
-	<p><?= print_r($explode); ?></p>
+	<p><?php print_r($explode); ?></p>
 
-	<p><?= print_r($implode); ?></p>
+	<p><?= ($implode); ?></p>
 </body>
 </html>
 
