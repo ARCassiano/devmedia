@@ -9,8 +9,9 @@
 	session_start();
 
 	if(isset($_GET["ac"]) && $_GET["ac"] == "logout" && isset($_SESSION["usuario"])){
-		unset($_SESSION["usuario"]);//session_destroy(); 
 		setcookie("usuarioLogado", "", time() - 3600);
+		unset($_SESSION["usuario"]);//session_destroy(); 
+		unset($_COOKIE["usuarioLogado"]);
 	}
 
 	if(isset($_POST["usuario"]) && isset($_POST["senha"]) && $_POST["senha"] == "admin" && $_POST["usuario"] == "admin"){
@@ -22,8 +23,6 @@
 	}
 
 	if(isset($_SESSION["usuario"]) || isset($_COOKIE["usuarioLogado"])){
-		if(isset($_COOKIE["usuarioLogado"]))
-			$_SESSION["usuario"]	= $_COOKIE["usuarioLogado"];
 
 		require_once("tmpl_administrativo.php");
 	}else{
