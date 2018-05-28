@@ -11,3 +11,9 @@
 		$mensagem	= "Jovem";
 	else
 		$mensagem	= "Você esta ficando idosos!";
+
+
+	//Calculado o quadrado de um numero
+	$retorno	= "O quadrado de 4 é: " . quadrado(4);
+	quadrado(2, true);
+

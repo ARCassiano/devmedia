@@ -9,6 +9,8 @@
 	<p>Nome: <?= $nome ?>/Idade: <?= $idade ?>/Data Nasc.: <?= $dtNasc ?></p>
 
 	<h3><?= $mensagem ?></h3>
+
+	<p><?= $retorno ?></p>
 </body>
 </html>
 
