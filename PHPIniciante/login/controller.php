@@ -15,14 +15,15 @@
 
 	if(isset($_POST["usuario"]) && isset($_POST["senha"]) && $_POST["senha"] == "admin" && $_POST["usuario"] == "admin"){
 		//Caso o usuário tenha marcado que deseja lembrar o login, deveremos mante-lo logado por mais 2min.
-		if($_POST["lembra"] == "1")
+		if(isset($_POST["lembra"]) && $_POST["lembra"] == "1")
 			setcookie("usuarioLogado", $_POST["usuario"], time() + 60*2);
 
 		$_SESSION["usuario"]	= $_POST["usuario"];
 	}
 
 	if(isset($_SESSION["usuario"]) || isset($_COOKIE["usuarioLogado"])){
-		$_SESSION["usuario"]	= $_COOKIE["usuarioLogado"];
+		if(isset($_COOKIE["usuarioLogado"]))
+			$_SESSION["usuario"]	= $_COOKIE["usuarioLogado"];
 
 		require_once("tmpl_administrativo.php");
 	}else{
