@@ -8,9 +8,9 @@
 		<p><?= $linha ?></p>
 	<?php } ?>
 
-	<p><?php print_r("Split: " . $str_split); ?></p>
+	<p><?php echo "Split: " . print_r($str_split); ?></p>
 
-	<p><?php print_r("Explode: " . $explode); ?></p>
+	<p><?php echo "Explode: " . print_r($explode); ?></p>
 
 	<p><?= "implode: " . ($implode); ?></p>
 </body>

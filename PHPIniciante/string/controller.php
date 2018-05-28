@@ -24,7 +24,7 @@
 	$explode	= explode($var2, " ");
 
 	//utilizando impldoe
-	$implode 	= implode($explode, "_");
+	$implode 	= implode("_", $explode);
 
 	//utilizando str_replace
 	$array[] 	= str_replace("Esta", "Aquela", $var2);
