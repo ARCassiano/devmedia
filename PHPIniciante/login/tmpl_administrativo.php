@@ -4,7 +4,7 @@
 	<title><?= $titulo ?></title>
 </head>
 <body>
-	<h1>Seja bem-vindo <?= $SESSION["usuario"] ?>, você esta logado!</h1>
+	<h1>Seja bem-vindo <?= $_SESSION["usuario"] ?>, você esta logado!</h1>
 </body>
 </html>
 
