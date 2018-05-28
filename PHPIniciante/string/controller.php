@@ -2,7 +2,7 @@
 
 	$titulo	= "Aula 12 - Curso de PHP Básico";
 
-	$array	array();
+	$array	= array();
 
 	$var1 	= "ESTA é alguma frase";
 	$var2 	= "Esta é outra frase";
