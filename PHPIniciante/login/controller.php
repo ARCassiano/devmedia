@@ -9,7 +9,7 @@
 	session_start();
 
 	if(isset($_GET["ac"]) && $_GET["ac"] == "logout" && isset($_SESSION["usuario"]))
-		unset($_SESSION["usuario"]);//session_destroy(); //Poderia ser utilziado o unset($_SESSION["usuario"]), mas teria quer verificar antes se a sessão existe (isset($_SESSION["usuario"])
+		unset($_SESSION["usuario"]);//session_destroy(); 
 
 	if(isset($_POST["usuario"]) && isset($_POST["senha"]) && $_POST["senha"] == "admin" && $_POST["usuario"] == "admin")
 		$_SESSION["usuario"]	= $_POST["usuario"];
