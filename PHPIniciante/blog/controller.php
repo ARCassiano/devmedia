@@ -15,5 +15,6 @@
 
 	//Calculado o quadrado de um numero
 	$retorno	= "O quadrado de 4 é: " . quadrado(4);
-	quadrado(2, true);
+	//quadrado(2, true);// desta forma iria imprimir diretamente na tela
 
+	$concatenei	= concatenar("Anderson", "Cassiano");

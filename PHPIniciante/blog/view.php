@@ -11,6 +11,8 @@
 	<h3><?= $mensagem ?></h3>
 
 	<p><?= $retorno ?></p>
+
+	<p>As palavras concatenas é: <?= $concatenei ?></p>
 </body>
 </html>
 
