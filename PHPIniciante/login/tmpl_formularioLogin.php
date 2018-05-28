@@ -12,7 +12,7 @@
 		<p>Senha: </p>
 		<input type="password" name="senha">
 
-		<p><input type="checbox" name="lembrar" value="1"> Manter logado</p>
+		<p><input type="checkbox" name="lembrar" value="1"> Manter logado</p>
 		<input type="submit" name="ok">
 	</form>
 </body>
