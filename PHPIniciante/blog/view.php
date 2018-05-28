@@ -12,7 +12,7 @@
 
 	<p><?= $retorno ?></p>
 
-	<p>As palavras concatenas é: <?= $concatenei ?></p>
+	<p>As palavras concatenadas é: <?= $concatenei ?></p>
 </body>
 </html>
 

@@ -17,4 +17,4 @@
 	$retorno	= "O quadrado de 4 é: " . quadrado(4);
 	//quadrado(2, true);// desta forma iria imprimir diretamente na tela
 
-	$concatenei	= concatenar("Anderson", "Cassiano");
+	$concatenei	= concatenar("Anderson", "Cassiano"); //Ao utilizar um @ na chamada do metodo, o erro da função não será exibida
