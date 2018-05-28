@@ -15,7 +15,7 @@
 	$array[]	= "VAR2 em maiúsculo: " . strtoupper($var2);
 	
 	//exibindo a posição de uma caracter de ums string
-	$array[]	= "Posição do caracter  'é' na variavel VAR2: " . stripos("é", $var2);
+	$array[]	= "Posição do caracter  'é' na variavel VAR2: " . stripos($var2,"é");
 
 	//utilizando str_split
 	$str_split	= str_split($var3);
