@@ -8,11 +8,11 @@
 		<p><?= $linha ?></p>
 	<?php } ?>
 
-	<p><?php print_r($str_split); ?></p>
+	<p><?php print_r("Split: " . $str_split); ?></p>
 
-	<p><?php print_r($explode); ?></p>
+	<p><?php print_r("Explode: " . $explode); ?></p>
 
-	<p><?= ($implode); ?></p>
+	<p><?= "implode: " . ($implode); ?></p>
 </body>
 </html>
 
