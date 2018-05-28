@@ -21,7 +21,7 @@
 	$str_split	= str_split($var3);
 
 	//utilizando expldoe
-	$explode	= explode($var2, " ");
+	$explode	= explode(" ", $var2);
 
 	//utilizando impldoe
 	$implode 	= implode("_", $explode);
