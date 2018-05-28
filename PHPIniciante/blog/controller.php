@@ -10,4 +10,4 @@
 	if($idade < 20)
 		$mensagem	= "Jovem";
 	else
-		$mensagem	= "VoCcê esta ficando idosos!";
+		$mensagem	= "Você esta ficando idosos!";
