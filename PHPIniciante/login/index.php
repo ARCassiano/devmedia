@@ -7,7 +7,7 @@
 	//definir constante armazenando o arquivo de log
 	define("ARQUIVO_LOG","log.txt");
 	
-	$log	= fopen(ARQUIVO_LOG, "x");
+	$log	= @fopen(ARQUIVO_LOG, "x");
 
 	//Arquivo de log já existe
 	if(!$log)
