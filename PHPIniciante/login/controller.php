@@ -22,7 +22,7 @@
 		$_SESSION["usuario"]	= $_POST["usuario"];
 
 		//Salva a data e o IP que realizou o login
-		fwrite($log, date("d/m/Y H:m:s") . " " . $_SERVER["REMOTE_ADDR"] . " " . $_POST["usuario"] . "\n");
+		fwrite($log, date("d/m/Y H:i:s") . " " . $_SERVER["REMOTE_ADDR"] . " " . $_POST["usuario"] . "\n");
 	}
 
 	if(isset($_SESSION["usuario"]) || isset($_COOKIE["usuarioLogado"])){
