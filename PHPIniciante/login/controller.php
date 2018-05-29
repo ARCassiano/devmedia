@@ -20,6 +20,9 @@
 			setcookie("usuarioLogado", $_POST["usuario"], time() + 60*2);
 
 		$_SESSION["usuario"]	= $_POST["usuario"];
+
+		//Salva a data e o IP que realizou o login
+		fwrite($log, date("d/m/Y H:m:s") . " " . $_SERVER["REMOTE_ADDR"] . " " . $_POST["usuario"] . "\n");
 	}
 
 	if(isset($_SESSION["usuario"]) || isset($_COOKIE["usuarioLogado"])){
@@ -29,3 +32,4 @@
 		require_once("tmpl_formularioLogin.php");
 	}
 	
+	fclose($log);
