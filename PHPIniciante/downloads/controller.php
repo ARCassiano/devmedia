@@ -9,4 +9,4 @@
 	header("Content-type: application/png");
 	header("Content-disposition:attachment;filename='imagem17.png'");
 
-	readfile("arquivos/aoe.png");
+	readfile("arquivos/". $array[$idarquivo]);
