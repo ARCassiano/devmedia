@@ -7,6 +7,6 @@
 	$idarquivo	= $_GET["id"];
 
 	header("Content-type: application/png");
-	header("content-disposition:attachment;filename='imagem17.png'");
+	header("Content-disposition:attachment;filename='imagem17.png'");
 
-	readfile("../arquivos/aoe.png");
+	readfile("arquivos/aoe.png");
