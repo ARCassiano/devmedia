@@ -9,7 +9,7 @@
 	
 	$log	= @fopen(ARQUIVO_LOG, "x");
 
-	//Arquivo de log já existe
+	//Arquivo de log já existe 
 	if(!$log)
 		$log 	= fopen(ARQUIVO_LOG, "a"); //Abre o arquivo e posiciona o ponteiro no final do arquivo
 
