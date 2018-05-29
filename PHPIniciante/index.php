@@ -3,7 +3,7 @@
 	//Verirficar se o IP está em nossa blocklist
 	$ipsbloqueados	= array("170.82.135.211");
 
-	foreach ($ip as $ipsbloqueados) {
+	foreach ($ipsbloqueados as $ip) {
 		if($ip == $_SERVER["REMOTE_ADDR"]){
 			header("Location: ./negado.php");
 			exit();
