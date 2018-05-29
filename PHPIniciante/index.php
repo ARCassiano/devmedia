@@ -10,6 +10,11 @@
 		}
 	}
 
+	//Previnir o cache nas páginas
+	header("Expires: Mon, 21 Out 1999 00:00:00 GMT");
+	header("Cache-control: no-cache");
+	header("Pragma: no-cache");
+
 	$r = $_GET["r"];
 
 	require_once("funcoes.php");
