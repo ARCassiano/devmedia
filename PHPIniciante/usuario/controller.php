@@ -16,6 +16,8 @@
 	//p == "cadastrar" || p == "listar" || p == "excluir"
 	if(isset($_GET["p"]))
 		$p 	= $_GET["p"];
+	else
+		$p 	= "";
 
 	switch ($p) {
 		case "cadastrar":
