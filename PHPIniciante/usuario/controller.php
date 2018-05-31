@@ -42,7 +42,7 @@
 		$resultado	= listarUsuario($conexao);
 
 		while ($row = $resultado->fetch_row()) 
-			$data[]	= array("id" => $row["id"], "nome" => $row["nome"], "idade" => $row["idade"]);
+			$data[]	= array("id" => $row[0], "nome" => $row[1], "idade" => $row[2]);
 		
 		return $data;
 	}
