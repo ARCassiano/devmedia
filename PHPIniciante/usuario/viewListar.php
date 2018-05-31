@@ -13,9 +13,9 @@
 		</tr>
 		<?php foreach ($dados as $linha) { ?>
 				<tr>
-					<td><?php $dados[0] ?></td>
-					<td><?php $linha["nome"] ?></td>
-					<td><?php $linha["idade"] ?></td>
+					<td><?= $linha["id"] ?></td>
+					<td><?= $linha["nome"] ?></td>
+					<td><?= $linha["idade"] ?></td>
 				</tr>
 		<?php } ?>
 	</table>
