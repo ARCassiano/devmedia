@@ -50,7 +50,7 @@
 	}
 
 	function excluirDado($conexao){
-		$id	= (isset($_GET["codigo"]) ? $_GET["codigo"] : null;
+		$id	= (isset($_GET["codigo"])) ? $_GET["codigo"] : null;
 		$resultado	= excluirUsuario($conexao, $id);
 
 		if($resultado)
