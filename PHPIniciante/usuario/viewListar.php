@@ -6,11 +6,11 @@
 <body>
 	<h1>Conteudo cadastrado no banco de dados</h1>
 	<table border="1">
-		<th>
+		<tr>
 			<td>id</td>
 			<td>nome</td>
 			<td>idade</td>
-		</th>
+		</tr>
 		<?php foreach ($dados as $linha) { ?>
 				<tr>
 					<td><?php $linha["id"] ?></td>
