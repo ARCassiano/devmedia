@@ -30,6 +30,7 @@
 		
 		default:
 			$dados 	= listarDados($conexao);
+			var_dump($dados);
 			require("viewListar.php");
 			break;
 	}
@@ -44,6 +45,5 @@
 		while ($row = $resultado->fetch_row()) 
 			$data[]	= array("id" => $row[0], "nome" => $row[1], "idade" => $row[2]);
 		
-		var_dump($data);
 		return $data;
 	}
