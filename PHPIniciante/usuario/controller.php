@@ -66,7 +66,7 @@
 		//Verificar se está sendo realizado um cadastro de usuário
 		$nome	= "";
 		$idade	= "";
-		
+
 		if(isset($_POST["formUsuario"])){
 			//Executar procedimento de cadastro
 			$nome	= $_POST["nome"];
@@ -81,11 +81,11 @@
 			}else{
 				echo "Não foi possível realizar o cadastro";
 				$titulo	= "Cadastrar Usuário";
-				require("viewCadastrar.php");
+				require("viewCadastro.php");
 			}
 		}else{
 			//Exibir formulario de cadastro
 			$titulo	= "Cadastrar Usuário";
-			require("viewCadastrar.php");
+			require("viewCadastro.php");
 		}
 	}
