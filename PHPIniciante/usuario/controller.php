@@ -21,7 +21,8 @@
 
 	switch ($p) {
 		case "cadastrar":
-			# code...
+			cadastrarDado($conexao);
+
 			break;
 		
 		case "excluir":
@@ -59,4 +60,32 @@
 			$msg	= "";
 
 		return $msg;
+	}
+
+	function cadastrarDado($conexao){
+		//Verificar se está sendo realizado um cadastro de usuário
+		$nome	= "";
+		$idade	= "";
+		
+		if(isset($_POST["formUsuario"])){
+			//Executar procedimento de cadastro
+			$nome	= $_POST["nome"];
+			$idade	= $_POST["idade"];
+
+			$resultado	= cadastrarUsuario($conexao, $nome, $idade);
+
+			if($resultado){
+				$msg	= "Usuário cadastrado com sucesso!";
+				$dados 	= listarDados($conexao);
+				require("viewListar.php");
+			}else{
+				echo "Não foi possível realizar o cadastro";
+				$titulo	= "Cadastrar Usuário";
+				require("viewCadastrar.php");
+			}
+		}else{
+			//Exibir formulario de cadastro
+			$titulo	= "Cadastrar Usuário";
+			require("viewCadastrar.php");
+		}
 	}

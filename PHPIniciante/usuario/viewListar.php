@@ -10,6 +10,8 @@
 		<h1><?= $retorno ?></h1>
 	<?php } ?>
 
+	<p><a href="index.php?r=usuario&p=cadastrar">Cadastrar</a></p>
+	
 	<table border="1">
 		<tr>
 			<td>id</td>
