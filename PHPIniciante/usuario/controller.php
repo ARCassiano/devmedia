@@ -25,7 +25,9 @@
 			break;
 		
 		case "excluir":
-			# code...
+			$retorno	= excluirDado($conexao);
+			$dados 		= listarDados($conexao);
+			require("viewListar.php");
 			break;
 		
 		default:
@@ -45,4 +47,16 @@
 			$data[]	= array("id" => $row["id"], "nome" => $row["nome"], "idade" => $row["idade"]);
 		
 		return $data;
+	}
+
+	function excluirDado($conexao){
+		$id	= (isset($_GET["codigo"]) ? $_GET["codigo"] : null;
+		$resultado	= excluirUsuario($conexao, $id);
+
+		if($resultado)
+			$msg	= "Exclusão efetuada com sucesso!";
+		else
+			$msg	= "";
+
+		return $msg;
 	}

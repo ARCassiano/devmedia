@@ -6,3 +6,10 @@
 
 		return $resultado;
 	}
+
+	function excluirUsuario($conexao, $id){
+		$sql		= sprintf("DELETE FROM usuario WHERE id = %s", $id);
+		$resultado	= mysqli_query($conexao, $sql);
+
+		return $resultado;
+	}
