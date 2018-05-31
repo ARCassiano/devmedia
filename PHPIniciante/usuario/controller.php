@@ -30,7 +30,6 @@
 		
 		default:
 			$dados 	= listarDados($conexao);
-			var_dump($dados);
 			require("viewListar.php");
 			break;
 	}
@@ -42,8 +41,8 @@
 		$data	= array();
 		$resultado	= listarUsuario($conexao);
 
-		while ($row = $resultado->fetch_row()) 
-			$data[]	= array("id" => $row[0], "nome" => $row[1], "idade" => $row[2]);
+		while ($row = mysqli_fetch_array($resultado)) 
+			$data[]	= array("id" => $row["id"], "nome" => $row["nome"], "idade" => $row["idade"]);
 		
 		return $data;
 	}
