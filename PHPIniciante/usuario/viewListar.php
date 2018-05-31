@@ -13,7 +13,7 @@
 		</tr>
 		<?php foreach ($dados as $linha) { ?>
 				<tr>
-					<td><?php $linha["id"] ?></td>
+					<td><?php $linha[0] ?></td>
 					<td><?php $linha["nome"] ?></td>
 					<td><?php $linha["idade"] ?></td>
 				</tr>
