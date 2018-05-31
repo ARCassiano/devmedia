@@ -42,8 +42,8 @@
 		$resultado	= listarUsuario($conexao);
 
 		while ($row = $resultado->fetch_row()) 
-			echo $row[0];
-			//$data[]	= array("id" => $row[0], "nome" => $row[1], "idade" => $row[2]);
+			$data[]	= array("id" => $row[0], "nome" => $row[1], "idade" => $row[2]);
 		
+		var_dump($data);
 		return $data;
 	}
