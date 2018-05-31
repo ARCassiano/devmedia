@@ -7,7 +7,7 @@
 
 	if(mysqli_connect_errno($conexao)){
 		echo "A conexão falhou, erro reportado: " . mysqli_connect_error();
-		exit()
+		exit();
 	}
 
 	require("modelUsuario.php");
