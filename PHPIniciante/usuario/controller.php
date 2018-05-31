@@ -41,9 +41,7 @@
 		$data	= array();
 		$resultado	= listarUsuario($conexao);
 
-		echo $resultado;
-		exit();
-		while ($row = mysqli_fetch_array($resultado)) 
+		while ($row = $resultado->fetch_row()) 
 			$data[]	= array("id" => $row["id"], "nome" => $row["nome"], "idade" => $row["idade"]);
 		
 		return $data;
