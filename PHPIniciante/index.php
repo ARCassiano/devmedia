@@ -15,6 +15,13 @@
 	header("Cache-control: no-cache");
 	header("Pragma: no-cache");
 
+	//Dados para conexão com o banco de dados
+	//host, username, password, dbName
+	$dbHost		= "mysql.hostinger.com.br";
+	$dbUsername	= "u432556926_exe01";
+	$dbPassword	= "u432556926";
+	$dbName 	= "u432556926_exe01";
+
 	$r = $_GET["r"];
 
 	require_once("funcoes.php");
