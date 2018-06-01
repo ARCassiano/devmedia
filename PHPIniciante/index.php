@@ -23,7 +23,7 @@
 	$dbPassword	= "u432556926";
 	$dbName 	= "u432556926_exe01";
 
-	$r = (isset($_GET["r"])) : $_GET["r"] ? "";
+	$r = (isset($_GET["r"])) ? $_GET["r"] : "";
 
 	//rainTPL
 	include("lib/template/rainTPL/rain.tpl.class.php");
