@@ -4,6 +4,19 @@
 	<title>{$titulo}</title>
 </head>
 <body>
-
+	<table border="1">
+		<tr>
+			<td>id</td>
+			<td>nome</td>
+			<td>idade</td>
+		</tr>
+		{loop="dados"}
+		<tr>
+			<td>{$value.id}</td>
+			<td>{$value.nome}</td>
+			<td>{$value.idade}</td>
+		</tr>
+		{/loop}
+	</table>
 </body>
 </html>
