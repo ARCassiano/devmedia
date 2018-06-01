@@ -129,7 +129,7 @@
 				return false;
 			} 
 
-			$usuario 	= mysqli_fetch_row($resultado);//mysqli_fetch_assoc
+			$usuario 	= mysqli_fetch_assoc($resultado);//mysqli_fetch_assoc
 			$id 		= $usuario["id"];
 			$nome		= $usuario["nome"];
 			$idade		= $usuario["idade"];
