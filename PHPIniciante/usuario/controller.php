@@ -26,6 +26,8 @@
 		
 		case "exportar":
 			exportarDados($conexao, "usuario/_usuariosExportados.xml");
+			$dados 	= listarDados($conexao);
+			require("viewListar.php");
 			break;
 		
 		case "cadastrar":
