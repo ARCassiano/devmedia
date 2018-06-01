@@ -30,7 +30,5 @@
 	raintpl::$tpl_dir	= $r . "/tpl/";
 	raintpl::$cache_dir	= $r . "/tmp/";
 
-echo $r . "tpl/";
-
 	require_once("funcoes.php");
 	require_once($r . "/index.php");

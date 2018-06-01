@@ -23,7 +23,7 @@
 		case "listarTemplate":
 			$dados 	= listarDados($conexao);
 			listarDadosTemplate($dados);
-			require("viewListar.php");
+			//require("viewListar.php");
 			break;
 		
 		case "importar":
