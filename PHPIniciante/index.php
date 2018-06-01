@@ -10,8 +10,6 @@
 		}
 	}
 
-	//rainTPL
-	include("lib/template/rainTPL/rain.tpl.class.php");
 
 	//Previnir o cache nas páginas
 	header("Expires: Mon, 21 Out 1999 00:00:00 GMT");
@@ -25,7 +23,12 @@
 	$dbPassword	= "u432556926";
 	$dbName 	= "u432556926_exe01";
 
-	$r = $_GET["r"];
+	$r = (isset($_GET["r"])) : $_GET["r"] ? "";
+
+	//rainTPL
+	include("lib/template/rainTPL/rain.tpl.class.php");
+	raintpl::$tpl_dir	= $r . "tpl/";
+	raintpl::$cache_dir	= $r . "tmp/";
 
 	require_once("funcoes.php");
 	require_once($r . "/index.php");

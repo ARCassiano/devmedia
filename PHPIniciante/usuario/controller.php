@@ -20,6 +20,12 @@
 		$p 	= "";
 
 	switch ($p) {
+		case "listarTemplate":
+			$dados 	= listarDados($conexao);
+			listarDadosTemplate($dados);
+			require("viewListar.php");
+			break;
+		
 		case "importar":
 			importarDados($conexao, "usuario/_usuarios.xml");
 			break;
@@ -183,4 +189,10 @@
 
 		file_put_contents($arquivoXML, $xml);
 
+	}
+
+	function listarDadosTemplate($dados){
+		//template = listaUsuarios
+		$tpl 	= new raintpl();
+		$tpl->draw("listaUsuarios");
 	}
