@@ -195,7 +195,7 @@
 		//template = listaUsuarios
 		$tpl 		= new raintpl();
 		$titulo		= "Aplicação utilizando RainTPL";
-		$template	= "default"
+		$template	= "default";
 
 		$tpl->assign("dados", $dados);
 		$conteudo	= $tpl->draw("listaUsuarios", true);
