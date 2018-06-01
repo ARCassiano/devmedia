@@ -5,6 +5,13 @@
 	*
 	*/
 
+	/* Função para renderizar o template padrão do sistema */
+	function show($tpl, $titulo = "Título da Página", $conteudo = "", $template = "default"){
+		$tpl->assign("titulo", $titulo);
+		$tpl->assign("conteudo", $conteudo);
+		$tpl->draw($template);
+	}
+
 	/* Função para calcular o quadrdo de um numero passado como parametro */
 	function quadrado($num, $escreve = false){
 		// se o parametro for false, retornamos o valor
