@@ -22,7 +22,6 @@
 	switch ($p) {
 		case "cadastrar":
 			cadastrarDado($conexao);
-
 			break;
 		
 		case "excluir":
@@ -32,8 +31,7 @@
 			break;
 		
 		case "alterar":
-			$dados 		= listarDados($conexao);
-			require("viewListar.php");
+			alterarDados($conexao);
 			break;
 		
 		default:
