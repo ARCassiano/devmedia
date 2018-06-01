@@ -20,6 +20,10 @@
 		$p 	= "";
 
 	switch ($p) {
+		case "importar":
+			importarDados($conexao, "usuario/_usuarios.xml");
+			break;
+		
 		case "cadastrar":
 			cadastrarDado($conexao);
 			break;
@@ -137,4 +141,19 @@
 			
 			require("viewCadastro.php");
 		}
+	}
+
+	function importarDados($conexao, $arquivoXML){
+		$xml 	= simplexml_load_file($arquivoXML);
+
+		//Gravar todos os registros do XML no Banco de dados
+		foreach ($xml as $usuario) {
+			$resultado 	= cadastrarUsuario($conexao, $usuario->nome, $usuario->idade);
+			
+			if(!$resultado)
+				echo $usuario->nome." - ".$usuario->idade . " - Não foi possível realizar o cadastro<br>";
+		}
+
+		$dados 	= listarDados($conexao);
+		require("viewListar.php");
 	}
