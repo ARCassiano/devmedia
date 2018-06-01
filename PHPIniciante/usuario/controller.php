@@ -24,6 +24,11 @@
 			importarDados($conexao, "usuario/_usuarios.xml");
 			break;
 		
+		case "exportar":
+			exportarDados($conexao, "usuario/_usuariosExportados.xml");
+			require("viewListar.php");
+			break;
+		
 		case "cadastrar":
 			cadastrarDado($conexao);
 			break;
@@ -156,4 +161,25 @@
 
 		$dados 	= listarDados($conexao);
 		require("viewListar.php");
+	}
+
+	function exportarDados($conexao, $arquivoXML){
+		$usuarios 	= listarDados($conexao);
+
+		//Criar cabeçalho do arquivo XML
+		$xml 	= "<?xml version='1.0' encoding='utf-8'?>";
+		$xml 	.= "<usuarios>";
+
+		foreach ($usuarios as $usuario) {
+			$xml 	.= "<usuario>";
+			$xml 	.= "<id>" . $usuario["id"] . "</id>";
+			$xml 	.= "<nome>" . $usuario["nome"] . "</nome>";
+			$xml 	.= "<idade>" . $usuario["idade"] . "</idade>";
+			$xml 	.= "</usuario>";
+		}
+
+		$xml 	.= "</usuarios>";
+
+		file_put_contents($arquivoXML, $xml);
+
 	}
