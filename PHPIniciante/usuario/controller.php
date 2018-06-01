@@ -194,5 +194,6 @@
 	function listarDadosTemplate($dados){
 		//template = listaUsuarios
 		$tpl 	= new raintpl();
+		$tpl->assign("titulo", "Aplicação utilizando RainTPL");
 		$tpl->draw("listaUsuarios");
 	}
