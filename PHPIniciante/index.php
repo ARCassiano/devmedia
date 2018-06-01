@@ -27,8 +27,8 @@
 
 	//rainTPL
 	include("lib/template/rainTPL/rain.tpl.class.php");
-	raintpl::$tpl_dir	= $r . "tpl/";
-	raintpl::$cache_dir	= $r . "tmp/";
+	raintpl::$tpl_dir	= $r . "/tpl/";
+	raintpl::$cache_dir	= $r . "/tmp/";
 
 echo $r . "tpl/";
 
