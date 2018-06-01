@@ -31,6 +31,11 @@
 			require("viewListar.php");
 			break;
 		
+		case "alterar":
+			$dados 		= listarDados($conexao);
+			require("viewListar.php");
+			break;
+		
 		default:
 			$dados 	= listarDados($conexao);
 			require("viewListar.php");
@@ -66,6 +71,8 @@
 		//Verificar se está sendo realizado um cadastro de usuário
 		$nome	= "";
 		$idade	= "";
+		$id 	= "";
+		$acao	= "cadastrar";
 
 		if(isset($_POST["formUsuario"])){
 			//Executar procedimento de cadastro
@@ -86,6 +93,50 @@
 		}else{
 			//Exibir formulario de cadastro
 			$titulo	= "Cadastrar Usuário";
+			require("viewCadastro.php");
+		}
+	}
+
+	function alterarDados($conexao){
+		$titulo	= "Alterar Usuário";
+		$acao	= "alterar";
+		$id 	= "";
+		$nome	= "";
+		$idade	= "";
+
+		if(isset($_POST["formUsuario"])){
+
+			$id 	= $_POST["id"];
+			$nome	= $_POST["nome"];
+			$idade	= $_POST["idade"];			
+
+			$resultado	= alterarUsuario($conexao, $nome, $idade, $id);
+
+			if($resultado){
+				$msg	= "Usuário atualizado com sucesso!";
+				$dados 	= listarDados($conexao);
+				require("viewListar.php");
+			}else{
+				echo "Não foi possível realizar a alteração";
+				$titulo	= "Atualizar Usuário";
+				require("viewCadastro.php");
+			}
+		}else{
+
+			$id	= (isset($_GET["codigo"])) ? $_GET["codigo"] : null;
+			$resultado	= listarUsuarioPorId($conexao, $id);
+
+			if(!$resultado){
+				echo "Falha ao encontrar o usuário";
+				return false;
+			} 
+
+			$usuario 	= mysqli_fetch_row($resultado);//mysqli_fetch_assoc
+			$id 		= $usuario["id"];
+			$nome		= $usuario["nome"];
+			$idade		= $usuario["idade"];
+			
+			
 			require("viewCadastro.php");
 		}
 	}
