@@ -36,7 +36,7 @@
 
 		switch (json_last_error()) {
 			//JSON_ERROR_DEPTH || JSON_ERROR_NONE || JSON_ERRO_STATE_MISMATCH
-			case JSON_ERRO_STATE_MISMATCH:
+			case JSON_ERROR_STATE_MISMATCH:
 				echo "JSON inválido ou mal formado";
 				break;
 			case JSON_ERROR_SYNTAX:
