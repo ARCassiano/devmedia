@@ -16,8 +16,11 @@
 	$tpl 		= new raintpl();
 
 	switch ($p) {
-		case 'decodeIntermediario':
+		case 'jsonDecodeIntermediario':
 			jsonDecodeIntermediario($conexao, $tpl);
+			break;
+		case 'jsonEncode':
+			jsonEncode($conexao, $tpl);
 			break;
 		default:
 			jsonDecodeBasico($conexao, $tpl);
@@ -28,10 +31,32 @@
 	@mysqli_close($conexao);
 
 	function jsonDecodeBasico($conexao, $tpl){
-		$json 		= '{"nomeCampo": "valor", "nomeCampo2": "valor"}';
+		$json 		= '{"nomeCampo": "valor", "nomeCampo2": "valor"';
 		$obj		= json_decode($json);
 
-		echo $obj->nomeCampo;
+		switch (json_last_error()) {
+			//JSON_ERROR_DEPTH || JSON_ERROR_NONE || JSON_ERRO_STATE_MISMATCH
+			case JSON_ERRO_STATE_MISMATCH:
+				echo "JSON inválido ou mal formado";
+				break;
+			case JSON_ERROR_SYNTAX:
+				echo "Problema com o JSON";
+				break;
+			case JSON_ERROR_NONE:
+				echo $obj->nomeCampo;
+				break;
+			default:
+				echo "Erro de JSON desconhecido";
+				break;
+		}
+			
+	}
+
+	function jsonEncode($conexao, $tpl){
+		$usuarios	= array('Nome' => 'Anderson Cassiano',  'idade' => 22, 'dataNascimento' => '12/04/1996');
+
+		$json 	= json_encode($usuarios);
+		echo $json;
 	}
 
 	function jsonDecodeIntermediario($conexao, $tpl){
