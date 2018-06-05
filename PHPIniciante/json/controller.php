@@ -16,20 +16,61 @@
 	$tpl 		= new raintpl();
 
 	switch ($p) {
+		case 'decodeIntermediario':
+			jsonDecodeIntermediario($conexao, $tpl);
+			break;
 		default:
-			inicial($conexao, $tpl);
+			jsonDecodeBasico($conexao, $tpl);
 			break;
 	}
 
 	//Encerrar conexão com o banco de dados
 	@mysqli_close($conexao);
 
+	function jsonDecodeBasico($conexao, $tpl){
+		$json 		= '{"nomeCampo": "valor", "nomeCampo2": "valor"}';
+		$obj		= json_decode($json);
+
+		echo $obj->nomeCampo;
+	}
+
+	function jsonDecodeIntermediario($conexao, $tpl){
+		$json 		=	'{
+							"usuarios":	[
+								{
+									"nome": "Anderson Cassiano",
+									"idade": 22,
+									"dataNascimento": "12/04/1996"
+								},
+								{
+									"nome": "Anderson Cassiano",
+									"idade": 22,
+									"dataNascimento": "12/04/1996"
+								},
+								{
+									"nome": "Anderson Cassiano",
+									"idade": 22,
+									"dataNascimento": "12/04/1996"
+								},
+								{
+									"nome": "Anderson Cassiano",
+									"idade": 22,
+									"dataNascimento": "12/04/1996"
+								}
+							]
+						}';
+
+		$obj		= json_decode($json);
+
+		foreach ($obj->usuarios as $usuario) {
+			echo "<p>Nome: " . $usuario->nome . " | Idade: " . $usuario->idade . " | dataNascimento: " . $usuario->dataNascimento . "</p>";
+		}
+	}
+
 	function inicial($conexao, $tpl){
 		$titulo		= "Aplicação utilizando JSON";
 		$template	= "default";
 		$conteudo	= "";
 
-		$tpl->assign("dados", "");
-		
-		show($tpl, $titulo, $conteudo, $template);
+		show($tpl, $titulo, $json, $template);
 	}
