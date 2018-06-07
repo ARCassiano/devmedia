@@ -8,11 +8,6 @@
 		var $nome	= "";
 		var $idade	= "";
 
-		function __construct(argument)
-		{
-			# code...
-		}
-
 		function setNome($nome){
 			this->nome = $nome;
 		}
