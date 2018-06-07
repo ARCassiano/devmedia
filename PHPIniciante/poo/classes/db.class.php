@@ -15,7 +15,7 @@
 		protected $userName;
 		protected $password;
 
-		function __construct(argument)
+		function __construct()
 		{
 			$this->connection 	= null;
 			$this->host 		= "mysql.hostinger.com.br";
