@@ -9,19 +9,19 @@
 		var $idade	= "";
 
 		function setNome($nome){
-			this->nome = $nome;
+			$this->nome = $nome;
 		}
 		
 		function setIdade($idade){
-			this->idade = $idade;
+			$this->idade = $idade;
 		}
 		
 		function getNome(){
-			return this->nome;
+			return $this->nome;
 		}
 
 		function getIdade(){
-			return this->idade;
+			return $this->idade;
 		}
 	}
 
