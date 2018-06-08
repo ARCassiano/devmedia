@@ -5,7 +5,7 @@
  */
 class Usuario extends Database
 {
-	const $table	= "usuario";
+	const table	= "usuario";
 	function __construct()
 	{
 		# code...
