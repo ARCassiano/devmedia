@@ -8,7 +8,7 @@ class Usuario extends Database
 	const table	= "usuario";
 	function __construct()
 	{
-		# code...
+		parent::__construct();
 	}
 
 	function getTable(){
