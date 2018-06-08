@@ -15,6 +15,10 @@
 		protected $userName;
 		protected $password;
 
+
+		/* CONSTANTE PARA DEMONSTRAR O CHAMADO DE ATRIBUTOS DA CLASSE PAI EM HERENÇA */
+		const pai = true;
+		
 		function __construct()
 		{
 			$this->connection 	= null;
