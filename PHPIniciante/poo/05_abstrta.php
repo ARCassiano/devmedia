@@ -4,7 +4,7 @@
 	$esp 	= new Especifica();
 	$mesp 	= new MuitoEspecifica();
 
-	$esp->escreve("Escreve");
+	$esp->escreve("Escreve<br>");
 	$esp->digaOla();
 	$mesp->digaOla();
 ?>
