@@ -21,7 +21,7 @@ class Sobrecarga
 			
 			//Soma
 			case 2:
-				$this->soma(func_get_args(0), func_get_args(1))
+				$this->soma(func_get_args(0), func_get_args(1));
 				break;
 			
 			//Subtrair
