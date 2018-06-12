@@ -36,15 +36,15 @@ class Sobrecarga
 	}
 
 	private function multiplica($var){
-		echo "multiplicação:" . $var * $var . "<br>";
+		echo "multiplicação:" . ($var * $var) . "<br>";
 	}
 
 	private function soma($var1, $var2){
-		echo "soma: " . $var1 + $var2 . "<br>";
+		echo "soma: " . ($var1 + $var2) . "<br>";
 	}
 
 	private function subtrai($var1, $var2, $var3){
-		echo "subtração: " . $var1 - $var2 - $var3 . "<br>";
+		echo "subtração: " . ($var1 - $var2 - $var3) . "<br>";
 	}
 }
 
