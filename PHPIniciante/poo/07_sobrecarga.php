@@ -15,18 +15,18 @@ class Sobrecarga
 		switch (func_num_args()) {
 			// Multiplicação
 			case 1:
-				//func_get_args - Retona o parametro de acordo com o indice
-				$this->multiplica(func_get_args(0));
+				//func_get_arg - Retona o parametro de acordo com o indice
+				$this->multiplica(func_get_arg(0));
 				break;
 			
 			//Soma
 			case 2:
-				$this->soma(func_get_args(0), func_get_args(1));
+				$this->soma(func_get_arg(0), func_get_arg(1));
 				break;
 			
 			//Subtrair
 			case 3:
-				$this->subtrai(func_get_args(0), func_get_args(1), func_get_args(2));
+				$this->subtrai(func_get_arg(0), func_get_arg(1), func_get_arg(2));
 				break;
 			
 			default:
@@ -36,7 +36,7 @@ class Sobrecarga
 	}
 
 	private function multiplica($var){
-		echo "multiplicação:" . ($var * $var) . "<br>";
+		echo "multiplicação: " . ($var * $var) . "<br>";
 	}
 
 	private function soma($var1, $var2){
