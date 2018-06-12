@@ -6,12 +6,6 @@
  */
 class Sobrecarga
 {
-	
-	function __construct(argument)
-	{
-		# code...
-	}
-
 	//Responsável pela execução de uma operação matematica
 	// 1 argumento  - Multipliação
 	// 2 agrumentos - Soma
