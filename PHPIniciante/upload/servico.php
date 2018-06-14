@@ -16,6 +16,17 @@ function uploadBasico($dir, $ext_img, $ext_arq){
 	$arquivo	= $_FILES["arquivo"];
 	$file 		= $dir.$arquivo["name"];
 
+	//Funcao end retorna a ultima posição do vetor
+	$ext 		= strtolower(end(explode(".", $_FILES["name"]))
+
+	//A função array_search realiza a busca de um valor dentro do vetor 
+	if(!array_search($ext_img, $ext)){
+		if(!array_search($ext_arq, $ext)){
+			echo "O tipo do arquivo é inválido!<br>";
+			return false;
+		}
+	}
+
 
 	if(!file_exists($dir))
 		mkdir("../_up/");
