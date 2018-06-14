@@ -56,14 +56,16 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 	$arquivo = $_FILES['arquivo'];
 	$file = $dir.$arquivo['name'];
 	
-	$ext = strtolower(end(explode(".",$arquivo['name'])));
+
+	$exte		= explode(".", $arquivo["name"]);
+	$ext 		= strtolower(end($exte));
 	
 	if(array_search($ext,$ext_img) === 0) {
 		if(move_uploaded_file($arquivo['tmp_name'], $file))
 			$foto = $arquivo['name'];
 	} 
 	
-	$resultado = usuario_cadastrar( $conexao, $usuario, $idade, $foto );
+	$resultado = cadastrarUsuario( $conexao, $usuario, $idade, $foto );
 	
 	if($resultado){
 		echo "Cadastro efetuado com sucesso!<br/>";
