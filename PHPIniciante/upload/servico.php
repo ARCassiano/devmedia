@@ -7,6 +7,9 @@ $ext_img	= array("jpg", "gif", "png");
 $ext_arq	= array("doc", "docx", "pdf", "zip", "rar");
 
 switch ($passo) {
+	case "cadUsuario":
+		cadUsuario($dir, $ext_img, $ext_arq);
+		break;
 	default:
 		uploadBasico($dir, $ext_img, $ext_arq);
 		break;
@@ -39,6 +42,40 @@ function uploadBasico($dir, $ext_img, $ext_arq){
 	}else{
 		echo "O envio do arquivo falhou!";
 		print_r($_FILES);
+	}
+}
+
+function cadUsuario($dir, $ext_img, $ext_arq){
+	require("../app/usuario/modelUsuario.php");
+	require("../dbCon.php");
+	
+	$usuario = $_POST['txtNomeUsuario'];
+	$idade = (int) $_POST['txtIdadeUsuario'];
+	$foto = "";
+	
+	$arquivo = $_FILES['arquivo'];
+	$file = $dir.$arquivo['name'];
+	
+	$ext = strtolower(end(explode(".",$arquivo['name'])));
+	
+	if(array_search($ext,$ext_img) === 0) {
+		if(move_uploaded_file($arquivo['tmp_name'], $file))
+			$foto = $arquivo['name'];
+	} 
+	
+	$resultado = usuario_cadastrar( $conexao, $usuario, $idade, $foto );
+	
+	if($resultado){
+		echo "Cadastro efetuado com sucesso!<br/>";
+		
+		echo "Nome: ".$_POST['txtNomeUsuario']."<br/>";
+		echo "Idade: ".$_POST['txtIdadeUsuario']."<br/>";
+		
+		if($foto != "")
+			echo "Foto: <img width='150' src='../_up/".$foto."' />";
+		
+	} else {
+		echo "O cadastro falhou!";
 	}
 }
 

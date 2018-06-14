@@ -21,14 +21,14 @@
 		return $resultado;
 	}
 
-	function cadastrarUsuario($conexao, $nome, $idade){
+	function cadastrarUsuario($conexao, $nome, $idade, $foto = ""){
 		if($nome == "")
 			return false;
 
 		if($idade == "")
 			$idade	= "NULL";
 
-		$sql		= sprintf("INSERT INTO usuario(nome, idade) VALUES('%s', %s)", $nome, $idade);
+		$sql		= sprintf("INSERT INTO usuario(nome, idade, foto) VALUES('%s', %s, '%s')", $nome, $idade, $foto);
 		$resultado	= mysqli_query($conexao, $sql) or die(mysqli_error($conexao) . "<br>" . sql);
 
 		return $resultado;
