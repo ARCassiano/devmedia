@@ -60,7 +60,7 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 	$exte		= explode(".", $arquivo["name"]);
 	$ext 		= strtolower(end($exte));
 	
-	if(!array_search($ext,$ext_img)) {
+	if(array_search($ext,$ext_img)) {
 		if(move_uploaded_file($arquivo['tmp_name'], $file))
 			$foto = $arquivo['name'];
 	} 
