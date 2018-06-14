@@ -19,6 +19,8 @@ function uploadBasico($dir, $ext_img, $ext_arq){
 	//Funcao end retorna a ultima posição do vetor
 	$ext 		= strtolower(end(explode(".", $_FILES["name"]));
 
+		echo $_FILES["name"];
+		exit;
 	//A função array_search realiza a busca de um valor dentro do vetor 
 	if(!array_search($ext_img, $ext)){
 		if(!array_search($ext_arq, $ext)){
