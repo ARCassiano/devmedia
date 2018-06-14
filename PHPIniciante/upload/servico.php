@@ -16,6 +16,10 @@ function uploadBasico($dir, $ext_img, $ext_arq){
 	$arquivo	= $_FILES["arquivo"];
 	$file 		= $dir.$arquivo["name"];
 
+
+	if(!file_exists($dir))
+		mkdir("/public_html/devmedia/phpiniciante/_up/");
+
 	if(move_uploaded_file($arquivo["tmp_name"], $file)){
 		echo "O arquivo foi enviado corretamente!<br>";
 		echo "<a href='../_up/".$arquivo["name"]."'>Arquivo</a><br>";
