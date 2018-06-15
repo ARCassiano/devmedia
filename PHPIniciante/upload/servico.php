@@ -61,8 +61,12 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 	$ext 		= strtolower(end($exte));
 	
 	if(array_search($ext,$ext_img)) {
-		if(move_uploaded_file($arquivo['tmp_name'], $file))
+		if(move_uploaded_file($arquivo['tmp_name'], $file)){
 			$foto = $arquivo['name'];
+
+			include("../app/lib/wideimage/lib/WideImage.php");
+			WideImage::load($file)->resize(200, 150)->saveToFile($dir."thumbnail/".foto);
+		}
 	} 
 	
 	$resultado = cadastrarUsuario( $conexao, $usuario, $idade, $foto );
