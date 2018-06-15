@@ -13,10 +13,10 @@
 			Selecione a foto:
 			
 			<br/>
-			<img id="captcha" src="../lib/securimage/securimage/securimage_show.php" alt="CAPTCHA Image" />
+			<img id="captcha" src="../app/lib/securimage/securimage/securimage_show.php" alt="CAPTCHA Image" />
 			<br/>
 			<input type="text" name="captcha_code" size="10" maxlength="6" />
-			<a href="#" onclick="document.getElementById('captcha').src = '../lib/securimage/securimage/securimage_show.php?' + Math.random(); return false">
+			<a href="#" onclick="document.getElementById('captcha').src = '../app/lib/securimage/securimage/securimage_show.php?' + Math.random(); return false">
 				[ Recarregar ]
 			</a>
 			<br/>

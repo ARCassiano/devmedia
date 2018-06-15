@@ -12,7 +12,7 @@ switch ($passo) {
 }
 
 function spoofing(){
-	include_once '../lib/securimage/securimage/securimage.php';
+	include_once '../app/lib/securimage/securimage/securimage.php';
 	$securimage = new Securimage();
 
 	if ($securimage->check($_POST['captcha_code']) == false) {
