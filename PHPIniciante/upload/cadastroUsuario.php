@@ -10,6 +10,9 @@
 			<p>Idade:</p>
 			<p><input type="text" maxlength="3" name="txtIdadeUsuario" /></p>
 			
+			<p>Senha:</p>
+			<p><input type="text" maxlength="20" name="txtSenhaUsuario" /></p>
+
 			Selecione a foto:
 			<input type="file" name="arquivo"/>
 			<br/>
