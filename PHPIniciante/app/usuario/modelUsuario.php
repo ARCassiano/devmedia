@@ -21,14 +21,20 @@
 		return $resultado;
 	}
 
-	function cadastrarUsuario($conexao, $nome, $idade, $foto = ""){
+	function cadastrarUsuario($conexao, $nome, $idade, $foto = "", $senha = ""){
 		if($nome == "")
 			return false;
 
 		if($idade == "")
 			$idade	= "NULL";
 
-		$sql		= sprintf("INSERT INTO usuario(nome, idade, foto) VALUES('%s', %s, '%s')", $nome, $idade, $foto);
+		//$senha	= md5($senha);
+		//$senha	= sha1($senha);
+		//$senha	= base64_encode($senha); base64_decode()
+		if($senha != "")
+			$senha	= sha1($senha);
+
+		$sql		= sprintf("INSERT INTO usuario(nome, idade, foto, senha) VALUES('%s', %s, '%s', '%s')", $nome, $idade, $foto, $senha);
 		$resultado	= mysqli_query($conexao, $sql) or die(mysqli_error($conexao) . "<br>" . sql);
 
 		return $resultado;

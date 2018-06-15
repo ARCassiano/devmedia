@@ -50,12 +50,13 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 	require("../dbCon.php");
 	require("../app/lib/funcoes.php");
 	
-	$usuario = tratarStr($_POST['txtNomeUsuario']);
-	$idade = (int) tratarStr($_POST['txtIdadeUsuario']);
-	$foto = "";
+	$usuario	= tratarStr($_POST['txtNomeUsuario']);
+	$idade		= (int) tratarStr($_POST['txtIdadeUsuario']);
+	$senha		= $_POST['txtSenhaUsuario'];
+	$foto		= "";
 	
-	$arquivo = $_FILES['arquivo'];
-	$file = $dir.$arquivo['name'];
+	$arquivo	= $_FILES['arquivo'];
+	$file		= $dir.$arquivo['name'];
 	
 
 	$exte		= explode(".", $arquivo["name"]);
@@ -71,7 +72,7 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 		}
 	} 
 	
-	$resultado = cadastrarUsuario( $conexao, $usuario, $idade, $foto );
+	$resultado = cadastrarUsuario( $conexao, $usuario, $idade, $foto, $senha);
 	
 	if($resultado){
 		echo "Cadastro efetuado com sucesso!<br/>";
