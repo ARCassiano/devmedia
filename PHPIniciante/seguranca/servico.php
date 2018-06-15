@@ -17,10 +17,10 @@ function spoofing(){
 
 	if ($securimage->check($_POST['captcha_code']) == false) {
 	  //Captcha incorreto
-	  echo "O código digitado é inválido!.<br /><br />";
+	  echo "O código digitado é inválido!<br /><br />";
 	  exit;
 	}
 
-	echo "O código digitado é válido!.<br /><br />";
+	echo "O código digitado é válido!<br /><br />";
 }
 ?>
