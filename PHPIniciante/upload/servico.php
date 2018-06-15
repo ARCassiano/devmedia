@@ -66,7 +66,7 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 
 			include("../app/lib/wideimage/lib/WideImage.php");
 			WideImage::load($file)->resize(200, 150)->saveToFile($dir."thumbnail_p/".$foto);
-			WideImage::load($file)->crop("center", "center", 350, 250)->saveToFile($dir."thumbnail_m/".$foto)->destroy();
+			WideImage::load($file)->crop("center", "center", 350, 250)->saveToFile($dir."thumbnail_m/".$foto);
 		}
 	} 
 	
