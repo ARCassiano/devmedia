@@ -48,9 +48,10 @@ function uploadBasico($dir, $ext_img, $ext_arq){
 function cadUsuario($dir, $ext_img, $ext_arq){
 	require("../app/usuario/modelUsuario.php");
 	require("../dbCon.php");
+	require("../app/lib/funcoes.php");
 	
-	$usuario = $_POST['txtNomeUsuario'];
-	$idade = (int) $_POST['txtIdadeUsuario'];
+	$usuario = tratarStr($_POST['txtNomeUsuario']);
+	$idade = (int) tratarStr($_POST['txtIdadeUsuario']);
 	$foto = "";
 	
 	$arquivo = $_FILES['arquivo'];
@@ -75,8 +76,8 @@ function cadUsuario($dir, $ext_img, $ext_arq){
 	if($resultado){
 		echo "Cadastro efetuado com sucesso!<br/>";
 		
-		echo "Nome: ".$_POST['txtNomeUsuario']."<br/>";
-		echo "Idade: ".$_POST['txtIdadeUsuario']."<br/>";
+		echo "Nome: ".$usuario."<br/>";
+		echo "Idade: ".$idade."<br/>";
 		
 		if($foto != "")
 			echo "Foto: <img width='150' src='../_up/".$foto."' />";
