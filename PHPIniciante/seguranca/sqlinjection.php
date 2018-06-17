@@ -7,7 +7,7 @@
 	//$senha		= tratarStr($_GET["senha"]);
 	$senha		= $_GET["senha"];
 
-	$sql		= "SELECT * FROM usuario" WHERE nome = '" . $usuario . "' AND senha = '" . $senha . "';
+	$sql		= "SELECT * FROM usuario WHERE nome = '" . $usuario . "' AND senha = '" . $senha . "'";
 	$ret 		= mysqli_query($conexao, $sql);
 	
 	if(mysqli_num_rows($ret) > 0){
