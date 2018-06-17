@@ -1,7 +1,7 @@
 <?php
 
-	include("../dbCon.php'");
-	include("../app/lib/funcoes.php'");
+	include("../dbCon.php");
+	include("../app/lib/funcoes.php");
 
 	$usuario	= $_GET["usuario"];
 	//$senha		= tratarStr($_GET["senha"]);
