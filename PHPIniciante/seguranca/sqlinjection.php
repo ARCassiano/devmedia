@@ -10,7 +10,7 @@
 	$sql		= "SELECT * FROM usuario WHERE nome = '" . $usuario . "' AND senha = '" . $senha . "'";
 	$ret 		= mysqli_query($conexao, $sql);
 	
-	if(mysqli_num_rows($ret) > 0){
+	if(mysqli_num_rows(mysqli_query($conexao, $sql)) > 0){
 		echo "Acesso ao sistema liberado!";
 	}else{
 		echo "Acesso ao sistema negado!";
