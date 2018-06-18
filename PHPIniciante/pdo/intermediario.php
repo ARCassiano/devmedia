@@ -15,15 +15,18 @@
 		$objIns->bindParam(3, $senha);
 
 		$objIns->execute();
+		$objIns	= null;
 
 		$obj	= $pdo->prepare("SELECT id, nome, idade FROM usuario");
 		if($obj->execute()){
 			if($obj->rowCount() > 0){
 				while ($row = $obj->fetch(PDO::FETCH_OBJ)) {
-					echo($row->id . " " $row->nome . " " . $row->idade . "<br>");
+					echo($row->id . " " . $row->nome . " " . $row->idade . "<br>");
 				}
 			}
 		}
+
+		$obj 	= null;
 	}catch(PDOException $e){
 		echo($e->getMessage());
 	}
