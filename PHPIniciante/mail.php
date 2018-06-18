@@ -1,6 +1,6 @@
 <?php
 
-	$headers	= "From: PHP Iniciante <atendimento@gmail.com.br>";
+	$headers	= "From: PHP Iniciante <anderson.cassiano@hotmail.com>";
 
 	if(mail("anderson.cassiano@hotmail.com", "olá", "teste", $headers)){
 		echo "E-mail enviado com sucesso!";
