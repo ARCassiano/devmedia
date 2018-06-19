@@ -7,8 +7,8 @@
 
 	$mensagem	= "<strong>Olá Anderson Cassiano</strong>";
 
-	include("app/lib/smpt/SMTPConfig.php");
-	include("app/lib/smpt/SMTPClass.php");
+	include("app/lib/smtp/SMTPConfig.php");
+	include("app/lib/smtp/SMTPClass.php");
 
 	/*
 	* $smtpSever;
