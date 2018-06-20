@@ -1,6 +1,4 @@
 <?php
-	/*
-	*
-	* Arquivo de funções gerais
-	*
-	*/
+	/**
+	 *	Arquivo de funções gerais
+	 */
