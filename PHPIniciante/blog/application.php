@@ -9,7 +9,7 @@ class App
 	 */
 	public $db_host	= "mysql.hostinger.com.br";
 	public $db_user	= "u432556926_blog";
-	public $db_pass	= "u432556926";
+	public $db_pass	= "u432556926_";
 	public $db_name	= "u432556926_blog";
 
 	/**
@@ -47,6 +47,7 @@ class App
 
 		} catch (PDOException $e) {
 			echo($e->getMessage());
+			echo("<br>" . "mysql:host=" . $this->db_host . ";port=3306;dbname=" . $this->db_name . "," . $this->db_user . "," . $this->db_pass);
 		}
 	}
 
