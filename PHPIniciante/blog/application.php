@@ -30,7 +30,7 @@ class App
 	/**
 	 *	Função construtor responsável pela instanciação da conexão com o banco de dados ($this->conexao)
 	 */
-	function __construct(argument)
+	function __construct()
 	{
 		try {
 
