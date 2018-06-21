@@ -57,6 +57,13 @@ class App
 		include("app/model/" . strtolower($model) . ".class.php");
 		return new $model();
 	}
+
+	/**
+	 *	Função responsável pelo carregamento de views da aplicação
+	 */
+	function loadView($view, $tpl){
+		include("app/view/" . strtolower($view) . ".tpl.php");
+	}
 }
 
 

@@ -50,5 +50,26 @@
 			# Controle do módulo inicial (Posts)
 			$app 	= new App();
 			$site	= $app->loadModel("Site");
+
+
+			# Dados que devem ser carregados pela view
+			$param	= array(
+								"titulo" => $app->site_titulo,
+								"pagina" => "inicial",
+								"inicial" => array(
+													"posts" => array(
+																		array("titulo" => "teste"),
+																		array("titulo" => "teste"),
+																		array("titulo" => "teste")
+																	),
+													"categorias" => array(
+																			array("titulo" => "Nome da Categoria"),
+																			array("titulo" => "Nome da Categoria"),
+																			array("titulo" => "Nome da Categoria")
+																		)
+												)
+							);
+			
+			$app->loadView("Site", $param);
 			break;
 	}
