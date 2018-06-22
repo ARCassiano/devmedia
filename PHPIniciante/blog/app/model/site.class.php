@@ -15,7 +15,8 @@ class Site
 							categoria.categoriatitulo AS postcategoria,
 							usuario.usuarionome AS postusuarionome,
 							imagem.imagemarquivo,
-							imagem.imagemlegenda
+							imagem.imagemlegenda,
+							imagem.postimagemdestaque
 						FROM blog_post AS post 
 						INNER JOIN blog_usuario AS usuario ON usuario.usuarioid = post.blog_usuario_usuarioid 
 						INNER JOIN blog_categoria AS categoria ON categoria.categoriaid = post.blog_categoria_categoriaid 
@@ -23,6 +24,7 @@ class Site
 									SELECT 
 										imagem.imagemarquivo,
 										imagem.imagemlegenda,
+										imagem.imagemdestaque AS postimagemdestaque,
 										imagem.blog_post_postid
 									FROM blog_imagem AS imagem
 									WHERE imagem.imagemdestaque = 1
