@@ -48,7 +48,7 @@
 			$site	= $app->loadModel("Site");
 			
 			# URL amigável do post
-			$url	= isset($_GET["id"]) ? tStr($_GET["url"]) : "";
+			$url	= isset($_GET["url"]) ? tStr($_GET["url"]) : "";
 
 			# Buscar os dados do post, utilizando como parâmetro a URL amigável
 			$post 	= $site->getPos($app->conexao, $codpost = null, $url);
