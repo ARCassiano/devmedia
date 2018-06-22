@@ -53,9 +53,11 @@
 			# Buscar os dados do post, utilizando como parâmetro a URL amigável
 			$post 	= $site->getPost($app->conexao, $codpost = null, $url);
 
+			print_r($post);
 			# Buscar as imagens do post
 			$obj		= $site->listaImagensPost($app->conexao, $post->postid, "");
-			$imagens 	=$obj->fetchAll(PDO::FETCH_ASSOC);
+			print_r($obj);
+			$imagens 	= $obj->fetchAll(PDO::FETCH_ASSOC);
 
 
 			# Carregar array com as categorias do blog
