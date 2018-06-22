@@ -7,7 +7,7 @@
 	<? $date = new DateTime($post["postdata"]) ?>
 
 	  <div class="blog-post">
-	  	<a href="index.php?m=post&id=<?= $post["posturlamigavel"] ?>">
+	  	<a href="index.php?m=post&url=<?= $post["posturlamigavel"] ?>">
 			<h2 class="blog-post-title">
 				<?= $post["posttitulo"] ?>
 			</h2>
