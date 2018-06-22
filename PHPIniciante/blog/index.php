@@ -55,7 +55,7 @@
 
 			print_r($post);
 			# Buscar as imagens do post
-			$obj		= $site->listaImagensPost($app->conexao, $post->postid, "");
+			$obj		= $site->listaImagensPost($app->conexao, $post->postid, "0");
 			print_r($obj);
 			$imagens 	= $obj->fetchAll(PDO::FETCH_ASSOC);
 
