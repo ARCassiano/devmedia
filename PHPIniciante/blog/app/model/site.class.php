@@ -82,14 +82,27 @@ class Site
 	/**
 	 *	Função responsável por buscar no banco de dados um post, utilizando como base um postid (blog_post.postid)
 	 */
-	public function getPost($pdo, $postId){
+	public function getPost($pdo, $postId, $url = null){
 		/**
-		 *	Setar o id como condição na pesquisa
+		 *	Neste caso o desenvolvedor deverá utilizar a URL amigável como parâmetro ou o id do post
 		 */
-		$where	= " AND post.postid = :postid ";
-		
-		$obj	= $pdo->prepare($this->sqlPost . $where);
-		$obj->bindParam(":postid", $postId);
+		if($url == null){
+			/**
+			 *	Setar o id como condição na pesquisa
+			 */
+			$where	= " AND post.postid = :postid ";
+			
+			$obj	= $pdo->prepare($this->sqlPost . $where);
+			$obj->bindParam(":postid", $postId);
+		}else{
+			/**
+			 *	Setar a URL como condição na pesquisa
+			 */
+			$where	= " AND post.posturlamigavel = :url ";
+			
+			$obj	= $pdo->prepare($this->sqlPost . $where);
+			$obj->bindParam(":url", $url);
+		}
 
 		return ($obj->execute()) ? $obj->fetch(PDO::FETCH_OBJ) : false;
 	}
