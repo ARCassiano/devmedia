@@ -126,7 +126,7 @@ class Site
 			$where 	= " AND imagemdestaque = " . $destaque . " ";
 
 		$obj 	= $pdo->prepare($sql . $where);
-		$obj->bindParam(":idpost", $postId);
+		$obj->bindParam(":postid", $postId);
 		return ($obj->execute()) ? $obj->fetch(PDO::FETCH_OBJ) : false;
 	}
 }
