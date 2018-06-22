@@ -65,7 +65,7 @@ class Site
 		if($categoriaid != null)
 			$obj->bindParam(":categoriaid", $categoriaid);
 
-		$obj->execute()
+		$obj->execute();
 		return $obj;
 	}
 
