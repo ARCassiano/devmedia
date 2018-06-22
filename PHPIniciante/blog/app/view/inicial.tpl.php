@@ -4,7 +4,7 @@
 
 	<!-- LISTAGEM DE POSTS -->
 	<?php foreach($tpl["inicial"]["posts"] as $post) { ?>
-	<? $date = new Date($post["postdata"]) ?>
+	<? $date = new DateTime($post["postdata"]) ?>
 
 	  <div class="blog-post">
 	  	<a href="index.php?m=post&id=<?= $post["postid"] ?>">
