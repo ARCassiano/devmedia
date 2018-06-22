@@ -4,6 +4,7 @@
 	<?php $post = $tpl["verpost"]["post"]; ?>
 	
 	<?php 
+	print_r($post);
 		$date = new DateTime($post->postdata);
 	?>
   <div class="blog-post">

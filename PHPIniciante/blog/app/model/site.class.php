@@ -127,7 +127,7 @@ class Site
 
 		$obj 	= $pdo->prepare($sql . $where);
 		$obj->bindParam(":postid", $postId);
-		print_r($obj);
+
 		return ($obj->execute()) ? $obj : false;
 	}
 }
