@@ -123,7 +123,7 @@ class Site
 		 *	1 - Com Destaque 
 		 */
 		if($destaque != null)
-			$where 	= " AND imagemdestaque = " . $destaque . " ";
+			$where 	= " AND imagemdestaque = :idpost ";
 
 		$obj 	= $pdo->prepare($sql . $where);
 		$obj->bindParam(":idpost", $postId);
