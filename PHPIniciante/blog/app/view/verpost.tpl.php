@@ -4,7 +4,6 @@
 	<?php $post = $tpl["verpost"]["post"]; ?>
 	
 	<?php 
-	print_r($post);
 		$date = new DateTime($post->postdata);
 	?>
   <div class="blog-post">
@@ -12,8 +11,8 @@
 	<h2 class="blog-post-title"><?=$post->posttitulo?></h2>
 	<p class="blog-post-meta"><?=$date->format('d/m/Y H:i:s')?> por <?=$post->postusuarionome?>. Categoria: <strong><?=$post->postcategoria?></strong></p>
 	
-	<?php if($post->postimagemdestaque != "") { ?>
-		<img src="upload/<?=$post->postimagemdestaque?>" width="100%" />
+	<?php if($post->imagemarquivo != "") { ?>
+		<img src="upload/<?=$post->imagemarquivo?>" width="100%" />
 	<?php } ?>
 	
 	<p><?=$post->posttexto?></p>
