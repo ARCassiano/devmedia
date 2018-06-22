@@ -14,7 +14,7 @@ class Site
 							post.posturlamigavel,
 							categoria.categoriatitulo AS postcategoria,
 							usuario.usuarionome AS postusuarionome,
-							image.imagemarquivo,
+							imagem.imagemarquivo,
 							imagem.imagemlegenda
 						FROM blog_post AS post 
 						INNER JOIN blog_usuario AS usuario ON usuario.usuarioid = post.blog_usuario_usuarioid 
