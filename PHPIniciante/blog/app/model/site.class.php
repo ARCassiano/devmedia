@@ -13,7 +13,9 @@ class Site
 							post.postdata,
 							post.posturlamigavel,
 							categoria.categoriatitulo AS postcategoria,
-							usuario.usuarionome AS postusuarionome
+							usuario.usuarionome AS postusuarionome,
+							image.imagemarquivo,
+							imagem.imagemlegenda
 						FROM blog_post AS post 
 						INNER JOIN blog_usuario AS usuario ON usuario.usuarioid = post.blog_usuario_usuarioid 
 						INNER JOIN blog_categoria AS categoria ON categoria.categoriaid = post.blog_categoria_categoriaid 
