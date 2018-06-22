@@ -53,10 +53,8 @@
 			# Buscar os dados do post, utilizando como parâmetro a URL amigável
 			$post 	= $site->getPost($app->conexao, $codpost = null, $url);
 
-			print_r($post);
 			# Buscar as imagens do post
 			$obj		= $site->listaImagensPost($app->conexao, $post->postid, "0");
-			print_r($obj);
 			$imagens 	= $obj->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -66,7 +64,7 @@
 
 
 			# Renderizar o model
-			renderizaVerPost($app, $categorias, $posts, $imagens);
+			renderizaVerPost($app, $categorias, $post, $imagens);
 			break;
 		case 'categoria':
 			# Controle do módulo inicial (Posts) - Por categoria
@@ -126,7 +124,7 @@
 	/**
 	 *	Função que irá recolher os dados e chamar a View do Site, exibindo apenas um post
 	 */
-	function renderizaVerPost($app, $categorias, $posts, $imagens){
+	function renderizaVerPost($app, $categorias, $post, $imagens){
 		# Dados que devem ser carregados pela view
 		$param	= array(
 							"titulo"	=>	$app->site_titulo,
