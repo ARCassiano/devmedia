@@ -47,7 +47,7 @@ class App
 
 		} catch (PDOException $e) {
 			echo($e->getMessage());
-			echo("<br>" . "mysql:host=" . $this->db_host . ";port=3306;dbname=" . $this->db_name . "," . $this->db_user . "," . $this->db_pass);
+			//echo("<br>" . "mysql:host=" . $this->db_host . ";port=3306;dbname=" . $this->db_name . "," . $this->db_user . "," . $this->db_pass);
 		}
 	}
 

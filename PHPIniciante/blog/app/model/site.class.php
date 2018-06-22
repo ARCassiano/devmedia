@@ -30,20 +30,43 @@ class Site
 	/**
 	 *	Função responsável pela listagem de posts
 	 */
-	public function listaPosts($pdo, $bloqueado = null){
+	public function listaPosts($pdo, $bloqueado = "NI", $categoriaid = null){
 		$where	= " ";
 
 		/**
 		 *	Caso o parâmetro $bloqueado receba algum valor, adicionar condição para listar posts bloqueados ou desbloqueados
-		 *	0 - Bloqueado
-		 *	1 - Desbloqueado 
+		 *	0 - Desbloqueado
+		 *	1 - Bloqueado
 		 */
-		if($bloqueado != null)
-			$where	= " AND postbloqueado = " . $bloqueado . " ";
+		if($bloqueado !== "NI")
+			$where	= " AND post.postbloqueado = :bloqueado ";
 
+		/**
+		 *	Caso o parâmetro $categoriaid receba algum valor, adicionar condição para listar posts da categoria informada
+		 */
+		if($categoriaid != null)
+			$where	= " AND categoria.categoriaid = :categoriaid ";
+
+
+		/**
+		 *	Preparar a SQL para ser executa
+		 */
 		$obj	= $pdo->prepare($this->sqlPost . $where);
 
-		return ($obj->execute()) ? $obj : false;
+		/**
+		 *	Caso o parametro $bloqueado seja informado, o mesmo será passado a SQL
+		 */
+		if($bloqueado !== "NI")
+			$obj->bindParam(":bloqueado", $bloqueado);
+
+		/**
+		 *	Caso o parametro $categoriaid seja informado, o mesmo será passado a SQL
+		 */
+		if($categoriaid != null)
+			$obj->bindParam(":categoriaid", $categoriaid);
+
+		$obj->execute()
+		return $obj;
 	}
 
 	/**
