@@ -51,7 +51,7 @@
 			$url	= isset($_GET["url"]) ? tStr($_GET["url"]) : "";
 
 			# Buscar os dados do post, utilizando como parâmetro a URL amigável
-			$post 	= $site->getPos($app->conexao, $codpost = null, $url);
+			$post 	= $site->getPost($app->conexao, $codpost = null, $url);
 
 			# Buscar as imagens do post
 			$obj		= $site->listaImagensPost($app->conexao, $post->postid, "");
