@@ -112,7 +112,7 @@ class Site
 	/**
 	 *	Função responsável por buscar no banco de dados as imagens de um determinado post, utilizando como base um postid (blog_post.postid)
 	 */
-	public function listaImagensPost($pdo, $postId, $destaque = null){
+	public function listaImagensPost($pdo, $postId, $destaque = "NI"){
 		$sql 	= "SELECT * FROM blog_imagem WHERE blog_post_postid = :postid";
 		$where 	= "";
 
@@ -122,8 +122,8 @@ class Site
 		 *	0 - Sem destaque
 		 *	1 - Com Destaque 
 		 */
-		if($destaque != null)
-			$where 	= " AND imagemdestaque = :idpost ";
+		if($destaque != "NI")
+			$where 	= " AND imagemdestaque = " . $destaque . " ";
 
 		$obj 	= $pdo->prepare($sql . $where);
 		$obj->bindParam(":idpost", $postId);
