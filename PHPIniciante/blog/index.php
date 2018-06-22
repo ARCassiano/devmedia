@@ -42,6 +42,14 @@
 	 *		- Contato
 	 */
 	switch ($modulo) {
+		case 'post':
+			# Controle do módulo inicial (Posts)
+			$app 	= new App();
+			$site	= $app->loadModel("Site");
+			$postId	= isset($_GET["id"]) ? (int)$_GET["id"] : 0;
+
+			#realizar a exibição do post específico 
+			break;
 		case 'categoria':
 			# Controle do módulo inicial (Posts)
 			$app 	= new App();

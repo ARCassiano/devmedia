@@ -16,7 +16,17 @@ class Site
 							usuario.usuarionome AS postusuarionome
 						FROM blog_post AS post 
 						INNER JOIN blog_usuario AS usuario ON usuario.usuarioid = post.blog_usuario_usuarioid 
-						INNER JOIN blog_categoria AS categoria ON categoria.categoriaid = post.blog_categoria_categoriaid ";
+						INNER JOIN blog_categoria AS categoria ON categoria.categoriaid = post.blog_categoria_categoriaid 
+						LEFT JOIN (
+									SELECT 
+										imagem.imagemarquivo,
+										imagem.imagemlegenda,
+										imagem.blog_post_postid
+									FROM blog_imagem AS imagem
+									WHERE imagem.imagemdestaque = 1
+									ORDER BY imagem.imagemid DESC
+									LIMIT 1
+						) AS imagem ON imagem.blog_post_postid = post.postid ";
 
 
 	/**

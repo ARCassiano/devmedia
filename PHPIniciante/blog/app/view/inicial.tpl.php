@@ -7,8 +7,19 @@
 	<? $date = new Date($post["postdata"]) ?>
 
 	  <div class="blog-post">
-		<h2 class="blog-post-title"><?= $post["posttitulo"] ?></h2>
-		<p class="blog-post-meta"><?= $date->format("d/m/Y H:i:s")  ?> por <?= $post["postusuarionome"]  ?>. Categoria: <strong><?= $post["postcategoria"]  ?></strong></p>
+	  	<a href="index.php?m=post&id=<?= $post["postid"] ?>">
+			<h2 class="blog-post-title">
+				<?= $post["posttitulo"] ?>
+			</h2>
+		</a>
+		<p class="blog-post-meta">
+			<?= $date->format("d/m/Y H:i:s")  ?> por <?= $post["postusuarionome"]  ?>. Categoria: <strong><?= $post["postcategoria"]  ?></strong>
+		</p>
+
+		<?php if($post["imagemarquivo"] != ""){ ?>
+			<img src="upload/<?= $post["imagemarquivo"] ?>" width="100%" title="<?= $post["imagemlegenda"] ?>">
+		<?php } ?>
+
 		<p><?= $post["posttexto"]  ?></p>
 	  </div><!-- /.blog-post -->
 	
