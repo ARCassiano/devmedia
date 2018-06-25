@@ -55,7 +55,7 @@
 				# Recuperar dados da interface
 				$nome	= tStr($_POST["nome"]);
 				$email	= tStr($_POST["email"]);
-				$msg	= tStr($_POST["mensagem"]);
+				$msg	= ($_POST["mensagem"]);
 
 				# Preparar Cabeçalho do e-mail
 				$headers	 = "";

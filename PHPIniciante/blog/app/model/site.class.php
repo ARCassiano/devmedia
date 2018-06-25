@@ -64,7 +64,7 @@ class Site
 		 *	Preparar a SQL para ser executa
 		 */
 		$obj	= $pdo->prepare($this->sqlPost . $where);
-
+echo $this->sqlPost . $where;
 		/**
 		 *	Caso o parametro $bloqueado seja informado, o mesmo será passado a SQL
 		 */
