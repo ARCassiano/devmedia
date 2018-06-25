@@ -64,7 +64,10 @@ class Site
 		 *	Preparar a SQL para ser executa
 		 */
 		$obj	= $pdo->prepare($this->sqlPost . $where);
-echo $this->sqlPost . $where + " - $categoriaid = " . $categoriaid;
+		print_r($categoriaid);
+		print_r($this->sqlPost . $where);
+		echo $this->sqlPost . $where . "<br>";
+		echo $this->sqlPost . $where . " - $categoriaid = " . $categoriaid . "<br>";
 		/**
 		 *	Caso o parametro $bloqueado seja informado, o mesmo será passado a SQL
 		 */
