@@ -75,7 +75,7 @@ class Site
 		 *	Caso o parametro $categoriaid seja informado, o mesmo será passado a SQL
 		 */
 		if($categoriaid != null)
-			$obj->bindParam(":XCategoriaID", $categoriaid);
+			$obj->bindParam(":XCategoriaID", $categoriaid, PDO::PARAM_INT);
 
 		$obj->execute();
 		return $obj;
