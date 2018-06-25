@@ -112,7 +112,7 @@
 
 			# Chamada da view Site
 			$app->loadView("Site", $param);
-			
+
 			break;
 		case 'post':
 			# Controle do módulo inicial (Posts) - Por URL amigável
@@ -144,7 +144,7 @@
 			$site	= $app->loadModel("Site");
 			
 			# Carregar array com os posts do blog desbloquados e de uma determinda categoria
-			$obj	= $site->listaPosts($app->conexao, 0, (int)$_GET["id"]);
+			$obj	= $site->listaPosts($app->conexao, "0", (int)$_GET["id"]);
 			$posts 	= $obj->fetchAll(PDO::FETCH_ASSOC);
 
 			# Carregar array com as categorias do blog
