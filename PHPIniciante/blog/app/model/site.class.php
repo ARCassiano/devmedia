@@ -49,10 +49,10 @@ class Site
 		 *	Caso o parâmetro $bloqueado receba algum valor, adicionar condição para listar posts bloqueados ou desbloqueados
 		 *	0 - Desbloqueado
 		 *	1 - Bloqueado
-		 */
+		
 		if($bloqueado !== "NI")
 			$where	= " AND post.postbloqueado = :bloqueado ";
-
+ */
 		/**
 		 *	Caso o parâmetro $categoriaid receba algum valor, adicionar condição para listar posts da categoria informada
 		 */
@@ -67,11 +67,11 @@ class Site
 
 		/**
 		 *	Caso o parametro $bloqueado seja informado, o mesmo será passado a SQL
-		 */
+		
 		if($bloqueado !== "NI")
 			$obj->bindParam(":bloqueado", $bloqueado);
 
-		/**
+ */		/**
 		 *	Caso o parametro $categoriaid seja informado, o mesmo será passado a SQL
 		 */
 		if($categoriaid != null)
