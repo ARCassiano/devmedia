@@ -57,7 +57,7 @@ class Site
 		 *	Caso o parâmetro $categoriaid receba algum valor, adicionar condição para listar posts da categoria informada
 		 */
 		if($categoriaid != null)
-			$where	= " AND categoria.categoriaid = ? ";
+			$where	= " AND categoria.categoriaid = ". $categoriaid ." ";
 
 
 		/**
@@ -74,9 +74,9 @@ class Site
 		/**
 		 *	Caso o parametro $categoriaid seja informado, o mesmo será passado a SQL
 		 */
-		if($categoriaid != null)
+		/*if($categoriaid != null)
 			$obj->bindParam(1, $categoriaid);
-
+*/
 		$obj->execute();
 		return $obj;
 	}
