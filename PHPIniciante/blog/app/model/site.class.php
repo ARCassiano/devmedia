@@ -57,17 +57,14 @@ class Site
 		 *	Caso o parâmetro $categoriaid receba algum valor, adicionar condição para listar posts da categoria informada
 		 */
 		if($categoriaid != null)
-			$where	= " AND categoria.categoriaid = :categoriaidX ";
+			$where	= " AND categoria.categoriaid = ? ";
 
 
 		/**
 		 *	Preparar a SQL para ser executa
 		 */
 		$obj	= $pdo->prepare($this->sqlPost . $where);
-		print_r($categoriaid);
-		print_r($this->sqlPost . $where);
-		echo $this->sqlPost . $where . "<br>";
-		echo $this->sqlPost . $where . " - $categoriaid = " . $categoriaid . "<br>";
+
 		/**
 		 *	Caso o parametro $bloqueado seja informado, o mesmo será passado a SQL
 		 */
@@ -78,7 +75,7 @@ class Site
 		 *	Caso o parametro $categoriaid seja informado, o mesmo será passado a SQL
 		 */
 		if($categoriaid != null)
-			$obj->bindParam(":categoriaidX", $categoriaid);
+			$obj->bindParam(1, $categoriaid);
 
 		$obj->execute();
 		return $obj;
