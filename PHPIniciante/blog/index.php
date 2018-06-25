@@ -42,6 +42,78 @@
 	 *		- Contato
 	 */
 	switch ($modulo) {
+		case 'fale-conosco':
+			# Controle do módulo Fale Conosco
+			$app 		= new App();
+			$site		= $app->loadModel("Site");			
+			$mensagem	= "";
+			$classe		= "";
+			
+			# Validar envio de e-mail
+			if(isset($_GET["frm_enviar"])){
+
+				# Recuperar dados da interface
+				$nome	= tStr($_POST["nome"]);
+				$email	= tStr($_POST["email"]);
+				$msg	= tStr($_POST["mensagem"]);
+
+				# Preparar Cabeçalho do e-mail
+				$headers	 = "";
+				$headers	.= "MIME-Version: 1.0 \r\n";
+				$headers	.= "Content-type: text/html; charset=\"UTF-8\"  \r\n";
+				$headers	.= "From:" . $nome . "<" . $email . ">";
+
+				# Preparar mensagem do e-mail
+				$mensagem	 = "Nome: " . $nome . " <br>";
+				$mensagem	.= "Email: " . $email . "<br>";
+				$mensagem	.= "Mensagem: " . $msg . " <br>";
+
+				# Includes de configuração do SMTP
+				include("libs/smtp/SMTPConfig.php");
+				include("libs/smtp/SMTPClass.php");
+
+				# Instanciando objeto SMTP
+				$SMTPMail	= new SMTPClient(
+												$SmtpServer,
+												$SmtpPort,
+												$SmtpUser,
+												$SmtpPass,
+												$SmtpUser,
+												$SmtpUser,
+												"E-mail enviado através do Site",
+												$mensagem,
+												$headers
+											);
+
+				# Tentavida de envio do e-mail, trantando mensagens de sucesso e falha
+				if($SMTPMail->SendMail()){
+					# Mensagem de sucesso
+					$mensagem 	= "O E-mail foi enviado com sucesso!";
+					$classe		= "alert-sucess";
+				}else{
+					# Mensagem de falha
+					$mensagem 	= "O envio do E-mail falhou!";
+					$classe		= "alert-danger";
+				}
+				# if($SMTPMail->SendMail())
+
+			}
+			# if(isset($_GET["frm_enviar"]))
+
+			# Dados que devem ser carregados pela view
+			$param	= array(
+								"titulo"	=>	$app->site_titulo,
+								"pagina"	=>	"contato",
+								"contato"	=>	array(
+													"mensagem"	=> $mensagem,
+													"classe"	=> $classe
+												)
+							);
+
+			# Chamada da view Site
+			$app->loadView("Site", $param);
+			
+			break;
 		case 'post':
 			# Controle do módulo inicial (Posts) - Por URL amigável
 			$app 	= new App();
