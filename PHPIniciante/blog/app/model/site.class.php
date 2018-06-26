@@ -50,16 +50,14 @@ class Site
 		 *	0 - Desbloqueado
 		 *	1 - Bloqueado
 		 */
-		if($bloqueado !== "NI"){
-			$where	= " AND post.postbloqueado = :bloqueado ";
-			echo "Entrou no WHERE Bloqueado <br>";
-		}
+		if($bloqueado !== "NI")
+			$where	.= " AND post.postbloqueado = :bloqueado ";
 
 		/**
 		 *	Caso o parâmetro $categoriaid receba algum valor, adicionar condição para listar posts da categoria informada
 		 */
 		if($categoriaid != null)
-			$where	= " AND categoria.categoriaid = :XCategoriaID ";
+			$where	.= " AND categoria.categoriaid = :categoriaid ";
 
 
 		/**
@@ -70,16 +68,14 @@ class Site
 		/**
 		 *	Caso o parametro $bloqueado seja informado, o mesmo será passado a SQL
 		 */
-		if($bloqueado !== "NI"){
+		if($bloqueado !== "NI")
 			$obj->bindParam(":bloqueado", $bloqueado);
-			echo "Setou vALor bloqueado <BR>";
-		}
 
 		/**
 		 *	Caso o parametro $categoriaid seja informado, o mesmo será passado a SQL
 		 */
 		if($categoriaid != null)
-			$obj->bindParam(":XCategoriaID", $categoriaid, PDO::PARAM_INT);
+			$obj->bindParam(":categoriaid", $categoriaid, PDO::PARAM_INT);
 
 		$obj->execute();
 		return $obj;
