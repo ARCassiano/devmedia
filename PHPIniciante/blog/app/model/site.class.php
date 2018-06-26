@@ -77,6 +77,7 @@ class Site
 		if($categoriaid != null)
 			$obj->bindParam(":categoriaid", $categoriaid, PDO::PARAM_INT);
 
+		echo($this->sqlPost . $where);
 		$obj->execute();
 		return $obj;
 	}
