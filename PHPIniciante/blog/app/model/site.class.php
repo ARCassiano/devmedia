@@ -28,7 +28,8 @@ class Site
 									WHERE imagem.imagemdestaque = 1
 									ORDER BY imagem.imagemid DESC
 									LIMIT 1
-						) AS imagem ON imagem.blog_post_postid = post.postid ";
+						) AS imagem ON imagem.blog_post_postid = post.postid 
+						WHERE 1 = 1 ";
 
 
 	/**
@@ -77,7 +78,6 @@ class Site
 		if($categoriaid != null)
 			$obj->bindParam(":categoriaid", $categoriaid, PDO::PARAM_INT);
 
-		echo($this->sqlPost . $where);
 		$obj->execute();
 		return $obj;
 	}
