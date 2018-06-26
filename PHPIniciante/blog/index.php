@@ -42,6 +42,52 @@
 	 *		- Contato
 	 */
 	switch ($modulo) {
+		case 'admin':
+			# Controle do módulo Fale Conosco
+			$app 	= new App();
+
+			# Indicando o inicio de session, será utilizado para validar se o usuário está logado
+			session_start();
+
+			# Verirfica se o usuário esta logado
+			if (isset($_SESSION["usuario"])) {
+				# Usuário logado
+				renderizaAdminInicial($app);
+			}else{
+				# Usuário não logado
+				renderizaLogin($app);
+			}
+
+			break;
+		case 'doLogin':
+			# Controle do módulo Fale Conosco
+			$app 	= new App();
+			
+			$admin 		= $app->loadModel("Admin");
+			$usuario	= tStr($_POST["usuario"]);
+			$senha		= md5(tStr($_POST["senha"]));
+
+			# Tentativa de Login
+			$obj = $admin->getUsuarioLoginSenha($app->conexao, $usuario, $senha);
+
+			if($obj){
+				# Indicando o inicio de session, será utilizado para validar se o usuário está logado
+				session_start();
+				$_SESSION["usuarioid"]		= $obj->usuarioid;
+				$_SESSION["usuario"]		= $obj->usuario;
+				$_SESSION["usuarionome"]	= $obj->usuarionome;
+
+				renderizaAdminInicial($app);
+			}else{
+				# Usuário não logado - Login Falhou
+				echo("<scritp>aler('Login ou senha incorreto(s)');</script>")
+				renderizaLogin($app);
+			}
+
+			break;
+		case 'logout':
+			# code...
+			break;
 		case 'fale-conosco':
 			# Controle do módulo Fale Conosco
 			$app 		= new App();
@@ -210,4 +256,35 @@
 
 		# Chamada da view Site
 		$app->loadView("Site", $param);
+	}
+
+	function renderizaAdminInicial($app){
+		# Setar o model Site para pegar as funções com o banco de dados
+		$site 	= $app->loadModel("Site");
+
+		# Carregar posts
+		$obj 	= $site->listaPosts($app->conexao);
+		$posts 	= $obj->fetchAll(PDO::FETCH_ASSOC);
+
+		# Dados que devem ser carregados pela view
+		$param	= array(
+							"titulo"	=>	$app->site_titulo,
+							"pagina"	=>	"inicialadmin",
+							"dados"	=>	array(
+												"posts"	=> $posts
+											)
+						);
+
+		# Chamada da view Site
+		$app->loadView("Admin", $param);
+	}
+
+	/**
+	 *	Função que irá mostrar a view responsável pelo login
+	 */
+	function renderizaLogin($app){
+		$param	= array("titulo"	=>	$app->site_titulo);
+
+		# Chamada da view Login
+		$app->loadView("Login", $param);
 	}
