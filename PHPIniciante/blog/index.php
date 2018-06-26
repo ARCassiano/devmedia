@@ -74,19 +74,26 @@
 				# Indicando o inicio de session, será utilizado para validar se o usuário está logado
 				session_start();
 				$_SESSION["usuarioid"]		= $obj->usuarioid;
-				$_SESSION["usuario"]		= $obj->usuario;
+				$_SESSION["usuario"]		= $usuario;
 				$_SESSION["usuarionome"]	= $obj->usuarionome;
 
 				renderizaAdminInicial($app);
 			}else{
 				# Usuário não logado - Login Falhou
-				echo("<scritp>aler('Login ou senha incorreto(s)');</script>");
+				echo("<scritp>alert('Login ou senha incorreto(s)');</script>");
 				renderizaLogin($app);
 			}
 
 			break;
 		case 'logout':
-			# code...
+			echo("<script>alert('Usuário desconectado com sucesso!');</script>");
+			$app 	= new App();
+
+			# Encerra todas as sessões, assim desconectando o usuário
+			session_start();
+			session_destroy();
+
+			renderizaLogin($app);
 			break;
 		case 'fale-conosco':
 			# Controle do módulo Fale Conosco
