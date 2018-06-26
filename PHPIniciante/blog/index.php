@@ -52,7 +52,31 @@
 			# Verirfica se o usuário esta logado
 			if (isset($_SESSION["usuario"])) {
 				# Usuário logado
-				renderizaAdminInicial($app);
+
+				$comp	= (isset($_GET["c"])) ? tStr($_GET["c"]) : null ;
+				$action	= (isset($_GET["a"])) ? tStr($_GET["a"]) : null ;
+
+				switch ($comp) {
+					case 'usuarios':
+						# Componente de gerenciamento de usuários
+						include("app/controller/usuario.class.php");
+
+						$usuario 	= new Usuario();
+
+						if($action != null){
+							# Executar ação requisitada
+							$usuario->action($app);
+						}else{
+							# Listagem de usuários
+							$usuario->listarUsuarios($app);
+						}
+
+						break;
+					default:
+						# Renderizar a pagina inicial do sistema administrativo
+						renderizaAdminInicial($app);
+						break;
+				}
 			}else{
 				# Usuário não logado
 				renderizaLogin($app);
