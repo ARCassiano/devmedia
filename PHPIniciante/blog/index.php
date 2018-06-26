@@ -80,7 +80,7 @@
 				renderizaAdminInicial($app);
 			}else{
 				# Usuário não logado - Login Falhou
-				echo("<scritp>alert('Login ou senha incorreto(s)');</script>");
+				echo("<script>alert('Login ou senha incorreto(s)');</script>");
 				renderizaLogin($app);
 			}
 
