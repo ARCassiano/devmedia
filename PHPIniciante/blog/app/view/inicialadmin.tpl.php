@@ -9,6 +9,7 @@
 						<th width="200">Data/Hora</th>
 						<th width="40"></th>
 						<th width="40"></th>
+						<th width="40"></th>
 					</tr>
 				</thead>
 				
@@ -23,6 +24,9 @@
 						</td>
 						<td>
 							<a href="index.php?m=admin&c=excluirPost&id=<?=$post["postid"]?>" class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o registro?')">Excluir</a>
+						</td>
+						<td>
+							<a href="index.php?m=admin&c=imagens&id=<?=$post["postid"]?>" class="btn btn-info">Imagens</a>
 						</td>
 					</tr>
 					<?php } ?>

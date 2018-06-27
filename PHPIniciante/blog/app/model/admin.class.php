@@ -102,7 +102,7 @@ class Admin
 		return ($obj) ? $obj : false;
 	}
 
-	
+
 	// módulos de categoria
 	
 	public function getTodasCategorias($pdo){
@@ -168,6 +168,91 @@ class Admin
 							 WHERE
 								categoriaid=:categoriaid");
 		$ins->bindParam(":categoriaid",$categoriaid);
+		
+		$obj = $ins->execute();
+		
+		return ($obj) ? $obj : false;
+	}
+
+	
+	// módulos de imagens
+	
+	public function getTodasImagens($pdo,$postid){
+		$obj = $pdo->prepare("SELECT 
+								bi.imagemid,
+								bi.imagemlegenda,
+								bi.imagemarquivo,
+								bi.imagemdestaque
+							FROM 
+								blog_imagem bi
+							WHERE
+								bi.blog_post_postid = :postid
+							");
+		$obj->bindParam(":postid",$postid);
+		return ($obj->execute()) ? $obj->fetchAll(PDO::FETCH_ASSOC) : false;
+	}
+	
+	public function getImagemId($pdo, $imagemid){
+		$obj = $pdo->prepare("SELECT 
+								bi.imagemid,
+								bi.imagemlegenda,
+								bi.imagemarquivo,
+								bi.imagemdestaque,
+								bi.blog_post_postid as postid
+							FROM 
+								blog_imagem bi
+							WHERE
+								bi.imagemid = :imagemid
+							");
+							
+		$obj->bindParam(":imagemid",$imagemid);
+		return ($obj->execute()) ? $obj->fetch(PDO::FETCH_ASSOC) : false;
+	}
+	
+	public function alteraDadosImagem($pdo, $imagemid, $imagemlegenda, $imagemdestaque){
+		$sql = "UPDATE 
+					blog_imagem
+				SET 
+					imagemlegenda=?,
+					imagemdestaque=?
+				WHERE 
+					imagemid=?";
+		$obj = $pdo->prepare($sql);
+		$obj->execute(array($imagemlegenda,$imagemdestaque,$imagemid));
+		
+		return ($obj) ? $obj : false;
+	}
+	
+	public function cadastrarImagem($pdo, $postid, $imagemarquivo, $imagemlegenda, $imagemdestaque){
+		$ins = $pdo->prepare("INSERT INTO 
+								blog_imagem
+								(
+									imagemarquivo, 
+									imagemlegenda, 
+									imagemdestaque, 
+									blog_post_postid
+								) VALUES(
+									:imagemarquivo, 
+									:imagemlegenda, 
+									:imagemdestaque, 
+									:postid
+								)");
+		$ins->bindParam(":imagemarquivo",$imagemarquivo);
+		$ins->bindParam(":imagemlegenda",$imagemlegenda);
+		$ins->bindParam(":imagemdestaque",$imagemdestaque);
+		$ins->bindParam(":postid",$postid);
+		
+		$obj = $ins->execute();
+		
+		return ($obj) ? $obj : false;
+	}
+	
+	public function excluirImagem($pdo, $imagemid){
+		$ins = $pdo->prepare("DELETE FROM 
+								blog_imagem
+							 WHERE
+								imagemid=:imagemid");
+		$ins->bindParam(":imagemid",$imagemid);
 		
 		$obj = $ins->execute();
 		

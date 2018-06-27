@@ -57,6 +57,27 @@
 				$action	= (isset($_GET["a"])) ? tStr($_GET["a"]) : null ;
 
 				switch ($comp) {
+					case 'imagens':
+						# Componente de gerenciamento de imagens
+						include("app/controller/imagem.class.php");
+
+						$imagem 	= new Imagem();
+
+						if($action != null){
+							# Executar ação requisitada. 
+							/**
+							 *	Ao utilizar a váriavel $action ao invés de chamar o método é uma forma de chamar o método de forma dinamica
+							 *	Desta forma a váriavel recebe o nome do método 
+							 *	A classe identifica que está sendo chamado o método com o mesmo nome que o valor da váriavel
+							 *	$imagem->$action, a váriavel $action atua como a chamda de método de forma dinâmica
+							 */
+							$imagem->$action($app);
+						}else{
+							# Listagem de imagens
+							$imagem->listarImagens($app);
+						}
+
+						break;
 					case 'categorias':
 						# Componente de gerenciamento de categorias
 						include("app/controller/categoria.class.php");
