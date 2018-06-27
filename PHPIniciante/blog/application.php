@@ -73,9 +73,10 @@ class App
 	}
 
 	function uploadImagem($arquivo){
-		$img_tmp = $this->sistema_pasta_upload."tmp/".$arquivo['name'];
+		$nameArquivo = $arquivo['name']
+		$img_tmp = $this->sistema_pasta_upload."tmp/". $nameArquivo;
 		
-		$ext = strtolower(end(explode(".",$arquivo['name'])));
+		$ext = strtolower(end(explode(".",$nameArquivo)));
 		
 		if(array_search($ext,$this->ext_img) === 0) {
 			if(move_uploaded_file($arquivo['tmp_name'], $img_tmp)){
