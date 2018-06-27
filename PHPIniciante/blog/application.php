@@ -20,7 +20,7 @@ class App
 	/**
 	 *	Dados do sistema
 	 */
-	public $sistema_pasta_upload	= "upload";
+	public $sistema_pasta_upload	= "upload/";
 
 	/**
 	 *	Extensões de imagem permitidas
