@@ -81,7 +81,7 @@ class App
 
 		//$ext = strtolower(end(explode(".",$nameArquivo)));
 		
-		if(array_search($ext,$this->ext_img) === 0) {
+		if(array_search($ext,$this->ext_img)) {
 			if(move_uploaded_file($arquivo['tmp_name'], $img_tmp)){
 				// criar um nome unico para o arquivo
 				$foto = md5(uniqid(time())).".".$ext;
@@ -99,9 +99,6 @@ class App
 		return false;
 	}
 }
-
-
-
 
 
 
