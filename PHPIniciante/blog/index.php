@@ -57,7 +57,7 @@
 				$action	= (isset($_GET["a"])) ? tStr($_GET["a"]) : null ;
 
 				switch ($comp) {
-					case 'categorias':
+					case 'categoria':
 						# Componente de gerenciamento de categorias
 						include("app/controller/categorias.class.php");
 
