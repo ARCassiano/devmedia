@@ -74,7 +74,7 @@
 							$categoria->$action($app);
 						}else{
 							# Listagem de categorias
-							$categoria->listaCategoria($app);
+							$categoria->listarCategorias($app);
 						}
 
 						break;
