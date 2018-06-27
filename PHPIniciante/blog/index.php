@@ -59,7 +59,7 @@
 				switch ($comp) {
 					case 'categoria':
 						# Componente de gerenciamento de categorias
-						include("app/controller/categorias.class.php");
+						include("app/controller/categoria.class.php");
 
 						$categoria 	= new Categoria();
 
