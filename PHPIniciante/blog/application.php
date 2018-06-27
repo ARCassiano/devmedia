@@ -23,9 +23,15 @@ class App
 	public $sistema_pasta_upload	= "upload";
 
 	/**
+	 *	Extensões de imagem permitidas
+	 */
+	public $ext_img = array('jpg','gif','png');
+
+	/**
 	 *	Váriavel responsável pelo gerenciamento de conexões
 	 */
 	public $conexao;
+
 
 	/**
 	 *	Função construtor responsável pela instanciação da conexão com o banco de dados ($this->conexao)
