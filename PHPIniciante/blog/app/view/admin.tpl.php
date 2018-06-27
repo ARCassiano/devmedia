@@ -18,7 +18,7 @@
       <div class="container">
         <nav class="blog-nav">
           <a class="blog-nav-item active" href="index.php?m=admin&c=posts">Gerenciar Posts</a>
-			  <a class="blog-nav-item active" href="index.php?m=admin&c=categoria">Gerenciar Categorias</a>
+			  <a class="blog-nav-item active" href="index.php?m=admin&c=categorias">Gerenciar Categorias</a>
           <a class="blog-nav-item active" href="index.php?m=admin&c=usuarios">Gerenciar Usuários</a>
 			  <a class="blog-nav-item active" href="index.php?m=logout">Sair</a>
 			  
