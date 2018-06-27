@@ -57,6 +57,27 @@
 				$action	= (isset($_GET["a"])) ? tStr($_GET["a"]) : null ;
 
 				switch ($comp) {
+					case 'categorias':
+						# Componente de gerenciamento de categorias
+						include("app/controller/categorias.class.php");
+
+						$categoria 	= new Categoria();
+
+						if($action != null){
+							# Executar ação requisitada. 
+							/**
+							 *	Ao utilizar a váriavel $action ao invés de chamar o método é uma forma de chamar o método de forma dinamica
+							 *	Desta forma a váriavel recebe o nome do método 
+							 *	A classe identifica que está sendo chamado o método com o mesmo nome que o valor da váriavel
+							 *	$categoria->$action, a váriavel $action atua como a chamda de método de forma dinâmica
+							 */
+							$categoria->$action($app);
+						}else{
+							# Listagem de categorias
+							$categoria->listaCategorias($app);
+						}
+
+						break;
 					case 'usuarios':
 						# Componente de gerenciamento de usuários
 						include("app/controller/usuario.class.php");
