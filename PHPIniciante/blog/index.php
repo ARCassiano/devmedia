@@ -64,8 +64,14 @@
 						$usuario 	= new Usuario();
 
 						if($action != null){
-							# Executar ação requisitada
-							$usuario->action($app);
+							# Executar ação requisitada. 
+							/**
+							 *	Ao utilizar a váriavel $action ao invés de chamar o método é uma forma de chamar o método de forma dinamica
+							 *	Desta forma a váriavel recebe o nome do método 
+							 *	A classe identifica que está sendo chamado o método com o mesmo nome que o valor da váriavel
+							 *	$usuario->$action, a váriavel $action atua como a chamda de método de forma dinâmica
+							 */
+							$usuario->$action($app);
 						}else{
 							# Listagem de usuários
 							$usuario->listarUsuarios($app);
