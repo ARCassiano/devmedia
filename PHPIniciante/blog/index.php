@@ -74,7 +74,7 @@
 							$imagem->$action($app);
 						}else{
 							# Listagem de imagens
-							$imagem->listarImagens($app, 1);//(int)$_GET["id"]
+							$imagem->listarImagens($app, (int)$_GET["id"]);
 						}
 
 						break;
