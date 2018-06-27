@@ -73,7 +73,7 @@ class App
 	}
 
 	function uploadImagem($arquivo){
-		$nameArquivo = $arquivo['name']
+		$nameArquivo = $arquivo['name'];
 		$img_tmp = $this->sistema_pasta_upload."tmp/". $nameArquivo;
 		
 		$ext = strtolower(end(explode(".",$nameArquivo)));
