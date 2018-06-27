@@ -22,7 +22,7 @@ class Admin
 
 		return ($obj->execute()) ? $obj->fetch(PDO::FETCH_OBJ) : false;
 	}
-	
+
 	public function getTodosUsuarios($pdo){
 		$obj = $pdo->prepare("SELECT 
 								usuarioid,
@@ -101,5 +101,78 @@ class Admin
 		
 		return ($obj) ? $obj : false;
 	}
+
+	
+	// módulos de categoria
+	
+	public function getTodasCategorias($pdo){
+		$obj = $pdo->prepare("SELECT 
+								bc.categoriaid,
+								bc.categoriatitulo,
+								(
+								 SELECT count(bp.postid) 
+								 FROM
+									blog_post bp
+								 WHERE
+									bp.blog_categoria_categoriaid = bc.categoriaid
+								) as numeroposts
+							FROM 
+								blog_categoria bc
+							ORDER BY
+								bc.categoriatitulo ASC
+							");
+		
+		return ($obj->execute()) ? $obj->fetchAll(PDO::FETCH_ASSOC) : false;
+	}
+	
+	public function getCategoriaId($pdo, $categoriaid){
+		$obj = $pdo->prepare("SELECT 
+								categoriaid,
+								categoriatitulo
+							FROM 
+								blog_categoria 
+							WHERE
+								categoriaid = :categoriaid
+							");
+							
+		$obj->bindParam(":categoriaid",$categoriaid);
+		return ($obj->execute()) ? $obj->fetch(PDO::FETCH_ASSOC) : false;
+	}
+	
+	public function alteraDadosCategoria($pdo, $categoriaid, $categoriatitulo){
+		$sql = "UPDATE 
+					blog_categoria
+				SET 
+					categoriatitulo=? 
+				WHERE 
+					categoriaid=?";
+		$obj = $pdo->prepare($sql);
+		$obj->execute(array($categoriatitulo,$categoriaid));
+		
+		return ($obj) ? $obj : false;
+		
+	}
+	
+	public function cadastrarCategoria($pdo, $categoriatitulo){
+		$ins = $pdo->prepare("INSERT INTO blog_categoria(categoriatitulo) VALUES(:categoriatitulo)");
+		$ins->bindParam(":categoriatitulo",$categoriatitulo);
+		
+		$obj = $ins->execute();
+		
+		return ($obj) ? $obj : false;
+	}
+	
+	public function excluirCategoria($pdo, $categoriaid){
+		$ins = $pdo->prepare("DELETE FROM 
+								blog_categoria
+							 WHERE
+								categoriaid=:categoriaid");
+		$ins->bindParam(":categoriaid",$categoriaid);
+		
+		$obj = $ins->execute();
+		
+		return ($obj) ? $obj : false;
+	}
+
 }
 ?>
