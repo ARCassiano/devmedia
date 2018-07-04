@@ -113,7 +113,7 @@
 		
 		function execCadastrarPost($app){
 			$admin = $app->loadModel("Admin");
-			cadastrarPost
+			
 			$posttitulo = tStr($_POST["posttitulo"]);
 			$posturlamigavel = limpaUrl($posttitulo);
 			$posttexto = $_POST["posttexto"];
@@ -122,7 +122,7 @@
 			$postdata = brToDt($_POST["postdata"]); 
 			$usuarioid = $_SESSION["usuarioid"];
 			
-			$obj = $admin->($app->conexao, 
+			$obj = $admin->cadastrarPost($app->conexao, 
 										 $posttitulo, 
 										 $posturlamigavel, 
 										 $posttexto, 
