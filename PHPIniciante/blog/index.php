@@ -279,7 +279,28 @@
 			# Renderizar o model
 			renderizaPaginaInicial($app, $categorias, $posts);
 			break;
-		
+		case "imagens" :
+			include("app/controller/imagem.class.php");
+			
+			$imagem = new Imagem();
+			if($action!=null){
+				$imagem->$action($app);
+			} else {
+				$imagem->listarImagens($app,(int)$_GET["id"]);
+			}
+			
+			break;
+		case "posts" :
+			include("app/controller/post.class.php");
+			
+			$post = new Post();
+			if($action!=null){
+				$post->$action($app);
+			} else {
+				renderizaAdminInicial($app);
+			}
+			
+			break;
 		default:
 			# Controle do módulo inicial (Posts)
 			$app 	= new App();
@@ -337,7 +358,7 @@
 		$app->loadView("Site", $param);
 	}
 
-	function renderizaAdminInicial($app){
+	function renderizaAdminInicial($app, $msg = ""){
 		# Setar o model Site para pegar as funções com o banco de dados
 		$site 	= $app->loadModel("Site");
 
@@ -350,7 +371,8 @@
 							"titulo"	=>	$app->site_titulo,
 							"pagina"	=>	"inicialadmin",
 							"dados"	=>	array(
-												"posts"	=> $posts
+												"posts"	=> $posts,
+												"msg"	=> $msg
 											)
 						);
 

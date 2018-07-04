@@ -20,7 +20,7 @@
 			<img src="upload/<?= $post["imagemarquivo"] ?>" width="100%" title="<?= $post["imagemlegenda"] ?>">
 		<?php } ?>
 
-		<p><?= $post["posttexto"]  ?></p>
+		<p><pre><?= $post["posttexto"]  ?></pre></p>
 	  </div><!-- /.blog-post -->
 	
 	<?php } ?>

@@ -15,7 +15,7 @@
 		<img src="upload/<?=$post->imagemarquivo?>" width="100%" />
 	<?php } ?>
 	
-	<p><?=$post->posttexto?></p>
+	<p><pre><?=$post->posttexto?></pre></p>
 	
 	<?php if(count($tpl["verpost"]["imagens"])>0) { ?>
 	<?php foreach($tpl["verpost"]["imagens"] as $img) { ?>
