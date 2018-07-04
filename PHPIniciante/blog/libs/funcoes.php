@@ -87,7 +87,7 @@ function validateDate($date, $format = 'Y-m-d H:i:s'){
     //$d = DateTime::createFromFormat($format, $date);
     //return $d && $d->format($format) == $date;
 	
-	if (date($format, strtotime($date)) == $data) {
+	if (date($format, strtotime($date)) == $date) {
         return true;
     } else {
         return false;
