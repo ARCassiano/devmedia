@@ -259,5 +259,98 @@ class Admin
 		return ($obj) ? $obj : false;
 	}
 
+	// módulos posts	
+	public function getPostId($pdo, $postid){
+		$obj = $pdo->prepare("SELECT 
+								bp.postid,
+								bp.posttitulo,
+								bp.posttexto,
+								bp.postbloqueado,
+								bp
+							FROM 
+								blog_post bp,
+								blog_usuario bu,
+								blog_categoria bc
+							WHERE
+								bi.imagemid = :imagemid
+							");
+							
+		$obj->bindParam(":imagemid",$imagemid);
+		return ($obj->execute()) ? $obj->fetch(PDO::FETCH_ASSOC) : false;
+	}
+	
+	public function alteraDadosPost($pdo, $postid, $posttitulo, $posttexto, $postbloqueado, $postcategoria, $posturlamigavel, $postdata){
+		$sql = "UPDATE 
+					blog_post
+				SET 
+					posttitulo=?,
+					posttexto=?,
+					postbloqueado=?,
+					blog_categoria_categoriaid=?,
+					posturlamigavel=?,
+					postdata=?
+				WHERE 
+					postid=?";
+		$obj = $pdo->prepare($sql);
+		$obj->execute(array($posttitulo, $posttexto, $postbloqueado, $postcategoria, $posturlamigavel, $postdata, $postid));
+		
+		return ($obj) ? $obj : false;
+	}
+	
+	public function cadastrarPost($pdo, $posttitulo, $posturlamigavel, $posttexto, $postbloqueado, $postcategoria, $postdata, $usuarioid, $postcriadoem){
+		$ins = $pdo->prepare("INSERT INTO 
+								blog_post
+								(
+									posttitulo,
+									posturlamigavel,
+									posttexto,
+									postbloqueado,
+									blog_categoria_categoriaid,
+									postdata,
+									blog_usuario_usuarioid,
+									postcriadoem
+								) VALUES(
+									:posttitulo,
+									:posturlamigavel,
+									:posttexto,
+									:postbloqueado,
+									:postcategoria,
+									:postdata,
+									:usuarioid,
+									:postcriadoem
+								)");
+		$ins->bindParam(":posttitulo",$posttitulo);
+		$ins->bindParam(":posturlamigavel",$posturlamigavel);
+		$ins->bindParam(":posttexto",$posttexto);
+		$ins->bindParam(":postbloqueado",$postbloqueado);
+		$ins->bindParam(":postcategoria",$postcategoria);
+		$ins->bindParam(":postdata",$postdata);
+		$ins->bindParam(":usuarioid",$usuarioid);
+		$ins->bindParam(":postcriadoem",$postcriadoem);
+		
+		$obj = $ins->execute();
+		
+		return ($obj) ? $obj : false;
+	}
+	
+	public function excluirPost($pdo, $postid){
+		// excluímos as imagens do banco de dados
+		$ins = $pdo->prepare("DELETE FROM 
+								blog_imagem
+							 WHERE
+								blog_post_postid=:postid");
+		$ins->bindParam(":postid",$postid);
+		$obj = $ins->execute();
+		
+		// excluimos o post
+		$ins = $pdo->prepare("DELETE FROM 
+								blog_post
+							 WHERE
+								postid=:postid");
+		$ins->bindParam(":postid",$postid);
+		$obj = $ins->execute();
+		
+		return ($obj) ? $obj : false;
+	}
 }
 ?>
