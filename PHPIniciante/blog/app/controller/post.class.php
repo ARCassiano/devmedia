@@ -12,7 +12,7 @@
 			
 			$criadoem = dtToBr($obj->postcriadoem);
 			$postdata = dtToBr($obj->postdata);
-			print_r($criadoem);
+			
 			$param = array("titulo"=>$app->site_titulo, 
 						   "pagina" => "formpost",
 						   "dados" => array(
