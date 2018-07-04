@@ -12,6 +12,7 @@ class Site
 							post.postbloqueado,
 							post.postdata,
 							post.posturlamigavel,
+							post.postcriadoem,
 							post.blog_categoria_categoriaid AS postcategoriaid,
 							categoria.categoriatitulo AS postcategoria,
 							usuario.usuarionome AS postusuarionome,
