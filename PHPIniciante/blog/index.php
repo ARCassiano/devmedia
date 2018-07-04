@@ -99,6 +99,17 @@
 						}
 
 						break;
+					case "posts" :
+						include("app/controller/post.class.php");
+						
+						$post = new Post();
+						if($action!=null){
+							$post->$action($app);
+						} else {
+							renderizaAdminInicial($app);
+						}
+						
+						break;
 					case 'usuarios':
 						# Componente de gerenciamento de usuários
 						include("app/controller/usuario.class.php");
@@ -278,28 +289,6 @@
 
 			# Renderizar o model
 			renderizaPaginaInicial($app, $categorias, $posts);
-			break;
-		case "imagens" :
-			include("app/controller/imagem.class.php");
-			
-			$imagem = new Imagem();
-			if($action!=null){
-				$imagem->$action($app);
-			} else {
-				$imagem->listarImagens($app,(int)$_GET["id"]);
-			}
-			
-			break;
-		case "posts" :
-			include("app/controller/post.class.php");
-			
-			$post = new Post();
-			if($action!=null){
-				$post->$action($app);
-			} else {
-				renderizaAdminInicial($app);
-			}
-			
 			break;
 		default:
 			# Controle do módulo inicial (Posts)
