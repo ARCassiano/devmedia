@@ -10,7 +10,7 @@
 			$obj = $site->getPost($app->conexao, $postid);
 			$categorias = $admin->getTodasCategorias($app->conexao);
 			
-			$criadoem = dtToBr($obj->postcriadoem);
+			$postcriadoem = dtToBr($obj->postcriadoem);
 			$postdata = dtToBr($obj->postdata);
 			
 			$param = array("titulo"=>$app->site_titulo, 
@@ -113,7 +113,7 @@
 		
 		function execCadastrarPost($app){
 			$admin = $app->loadModel("Admin");
-			
+			cadastrarPost
 			$posttitulo = tStr($_POST["posttitulo"]);
 			$posturlamigavel = limpaUrl($posttitulo);
 			$posttexto = $_POST["posttexto"];
@@ -122,7 +122,7 @@
 			$postdata = brToDt($_POST["postdata"]); 
 			$usuarioid = $_SESSION["usuarioid"];
 			
-			$obj = $admin->cadastrarPost($app->conexao, 
+			$obj = $admin->($app->conexao, 
 										 $posttitulo, 
 										 $posturlamigavel, 
 										 $posttexto, 
